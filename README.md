@@ -17,19 +17,22 @@
 | **7. Despliegue** | Apache/Nginx, LAMP en producción |
 
 ## 📁 Estructura actual (php-fundamentos)
+```
 php-fundamentos/
 ├── 01-variables/ # Tipos, constantes, $_POST
 ├── 02-arrays/
-├── 03-estructuras-control/
-├── 04-funciones/
-├── 05-strings/
+├── 03-condicionales/
+├── 04-bucles/
+├── 05-funciones/ # Próximamente
 └── 06-poo-basica/ # Próximamente
-
+```
 
 **Próximamente:**
-mysql-fundamentals/
-wordpress-integration/
+```
+mysql-fundamentos/
+wordpress-integracion/
 ajax-crud/
+```
 
 
 ## ⚡ Workflow Git para alumnos
@@ -46,23 +49,16 @@ code .  # VS Code + WSL
 git checkout -b tuusuario-01-variables
 ```
 
-### 3. Resolver
-Edita: php-fundamentos/01-variables/01-tipos.php
-git add .
-git commit -m "Ej01-07: Variables y formulario POST"
-git push origin tuusuario-01-variables
+### 3. Resolver + SUBIR
+Edita: php-fundamentos/01-variables/01-tipos.php hasta 07-formulario.php
+```bash
+git status              # Ve cambios
+git log --oneline       # Historial
+git push origin tuusuario-01-variables  # SUBE ✓
+```
 
+GitHub detecta tu rama  y crea automáticamente botón **Compare & pull request**
 
-### 4. Pull Request
-GitHub detecta tu rama → **Compare & pull request** → **Create**.
-
-## 🎯 Qué reviso en PRs
-
-- ✅ Funciona en `php archivo.php` y navegador
-- ✅ Cumple todos los TODOs del README
-- ✅ Sintaxis PHP 8.3+ 
-- ✅ `var_dump()` donde corresponde
-- ✅ Mensajes commit descriptivos
 
 ## 🛠️ Entorno desarrollo
 
@@ -72,11 +68,13 @@ GitHub detecta tu rama → **Compare & pull request** → **Create**.
 - **Apache** `var/www/html` para navegador
 
 ## 📋 Comandos Git esenciales
-git status # ¿Qué tengo pendiente?
-git add . # Preparar cambios
-git commit -m "mensaje" # Guardar snapshot
-git push # Subir rama
+```bash
+git status # Ve cambios rojos
+git add . # Preparar cambios. Los pone verdes
+git commit -m "Ej01-07: Variables + formulario POST"
+git push origin tuusuario-01-variables  # SUBE A GITHUB ✓
 git log --oneline # Historial
+```
 
 
 ## 🎓 Objetivos finales
