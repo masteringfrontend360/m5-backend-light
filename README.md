@@ -44,22 +44,35 @@ cd m5-backend-light
 code .  # VS Code + WSL
 ```
 
-### 2. Rama por práctica
+### 2. Rama por carpeta Primer Nivel
 ```bash
-git checkout -b tuusuario-01-variables
+git checkout -b tuusuario-php-fundamentos
+```
+> Reemplaza `tuusuario` por tu nombre de usuario de GitHub.
+
+### 3. Resolver ejercicios y SUBIR cambios
+Edita los archivos en:
+```bash
+php-fundamentos/01-variables/01-tipos.php
+php-fundamentos/01-variables/02-constantes.php
+...
+php-fundamentos/01-variables/07-formulario.php
+```
+Luego confirma y sube:
+```bash
+git status              # Ver cambios
+git add .               # Añadir todos los cambios (o archivos específicos)
+git commit -m "Ejercicios de variables. Perfecto"
+# o
+git commit -m "Revisa. Tengo dudas" #Mensajes claros
+git push origin tuusuario-php-fundamentos  # SUBE ✓
 ```
 
-### 3. Resolver + SUBIR
-Edita: php-fundamentos/01-variables/01-tipos.php hasta 07-formulario.php
-```bash
-git status              # Ve cambios
-git log --oneline       # Historial
-git push origin tuusuario-01-variables  # SUBE ✓
-```
+> GitHub detecta tu rama  y crea automáticamente botón **Compare & pull request**
 
-GitHub detecta tu rama  y crea automáticamente botón **Compare & pull request**
-
-
+Solo voy a proponer una estructura de carpetas y ficheros para los primeros 4 bloques.
+A partir de ahí, cada alumno deberá seguir creando sus propias carpetas y ficheros, siguiendo el mismo modelo de organización.
+Git manejará sin problema estos nuevos archivos y directorios, siempre que los añadas (git add) y hagas push a tu rama.
 ## 🛠️ Entorno desarrollo
 
 - **WSL + Debian + LAMP** (no XAMPP)
@@ -72,7 +85,7 @@ GitHub detecta tu rama  y crea automáticamente botón **Compare & pull request*
 git status # Ve cambios rojos
 git add . # Preparar cambios. Los pone verdes
 git commit -m "Ej01-07: Variables + formulario POST"
-git push origin tuusuario-01-variables  # SUBE A GITHUB ✓
+git push origin tuusuario-php-fundamentos  # SUBE A GITHUB ✓
 git log --oneline # Historial
 ```
 
