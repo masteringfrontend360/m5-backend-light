@@ -46,15 +46,15 @@ code .  # VS Code + WSL
 
 ### 2. Rama por práctica
 ```bash
-git checkout -b tuusuario-01-variables
+git checkout -b tuusuario
 ```
 
 ### 3. Resolver + SUBIR
 Edita: php-fundamentos/01-variables/01-tipos.php hasta 07-formulario.php
 ```bash
-git status              # Ve cambios
-git log --oneline       # Historial
-git push origin tuusuario-01-variables  # SUBE ✓
+git status                  # Ve cambios
+git log --oneline           # Historial
+git push origin tuusuario   # SUBE ✓
 ```
 
 GitHub detecta tu rama  y crea automáticamente botón **Compare & pull request**
@@ -69,10 +69,10 @@ GitHub detecta tu rama  y crea automáticamente botón **Compare & pull request*
 
 ## 📋 Comandos Git esenciales
 ```bash
-git status # Ve cambios rojos
-git add . # Preparar cambios. Los pone verdes
+git status              # Ve cambios rojos
+git add .               # Preparar cambios. Los pone verdes
 git commit -m "Ej01-07: Variables + formulario POST"
-git push origin tuusuario-01-variables  # SUBE A GITHUB ✓
+git push origin tuusuario  # SUBE A GITHUB ✓
 git log --oneline # Historial
 ```
 
