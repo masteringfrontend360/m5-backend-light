@@ -37,44 +37,70 @@ ajax-crud/
 
 ## ⚡ Workflow Git para alumnos
 
-### 1. Clonar (primera vez)
+### 1. Clonar (primera vez).
+Te situas en la carpeta donde quieras clonar el repo, por ejemplo, /var/www/html
 ```bash
 git clone https://github.com/masteringfrontend360/m5-backend-light.git
 cd m5-backend-light
 code .  # VS Code + WSL
 ```
 
-### 2. Rama por práctica
+### 2. Rama por alumno
+He pensado que en este curso vamos a trabajar con ramas. De manera que tendremos el repo principal y cada alumno colaborará en el repo creando su propia rama y resolviendo ahí los ejercicios planteados.
+
+Se pueden crear ramas locales y trabajar en ellas pero para poder subirlas a GitHub necesitaréis disponer de una cuentta y decirme vuestro nombre de usuario para poder añadiros como colaboradores del repo.
+
 ```bash
-git checkout -b tuusuario
+git checkout -b nombreRama # Crea una rama con el nombre proporcionado y te mete dentro de la rama
 ```
 
-### 3. Resolver + SUBIR
-Edita: php-fundamentos/01-variables/01-tipos.php hasta 07-formulario.php
+### 3. Resolver
+A partir de ahí vas resolviendo los diferentes ejercicios planteados de forma local. Puedes crear tantos commits como desees.
 ```bash
-git status                  # Ve cambios
-git log --oneline           # Historial
-git push origin tuusuario   # SUBE ✓
+git add .               # Preparar cambios. Los pone verdes
+git commit -m "Ej01-07: Variables + formulario POST"
 ```
 
-GitHub detecta tu rama  y crea automáticamente botón **Compare & pull request**
 
+### 4. Publicar en GitHub
+Antes de irte a casa, cada día, o cuando completes alguna parte puedes publicar todos estos cambios en GitHub. GitHub detecta tu rama y crea automáticamente botón **Compare & pull request**
+
+```bash
+git push origin nombreRama  # SUBE ✓
+```
+
+### 5. Cuando llegues a casa (primera vez)
+Puedes clonar el repo de la misma forma que hicieste en el paso 1.
+Cuando clonas el repo no tienes creada ninguna rama en local. Compruébalo:
+
+```bash
+git branch
+```
+Pero puedes seguir cualquiera de las ramas del proyecto.
+
+```bash
+git branch -r # Listado de ramas remotas
+git checkout nombreRama # Inica el nombre de la rama que quieres recuperar para seguir trabajando en tu rama. Este comando te situa en tu rama y crea esa rama como rama local.
+```
+
+### 6. Todos los días (menos la primera vez, en el cualquiera de los equipos locales)
+
+```bash
+ 
+git fetch origin            # Descarga TODO: cambios en main, tu rama, otras ramas
+                            # Actualiza origin/main y origin/nombreRama
+                            # NO modifica tus archivos locales
+git checkout nombreRama     # Cambia a tu rama local (ya sincronizada)
+git pull origin nombreRama  # Fusiona cambios de TU rama remota con la local
+git status                  # ✅ VERIFICA todo OK
+```
 
 ## 🛠️ Entorno desarrollo
 
 - **WSL + Debian + LAMP** (no XAMPP)
 - **VS Code** + extensión PHP Intelephense
 - **php -S localhost:8000** para pruebas
-- **Apache** `var/www/html` para navegador
-
-## 📋 Comandos Git esenciales
-```bash
-git status              # Ve cambios rojos
-git add .               # Preparar cambios. Los pone verdes
-git commit -m "Ej01-07: Variables + formulario POST"
-git push origin tuusuario  # SUBE A GITHUB ✓
-git log --oneline # Historial
-```
+- **Apache** `/var/www/html` para navegador
 
 
 ## 🎓 Objetivos finales
