@@ -5,3 +5,4 @@
 // 3. Haz una suma y muéstrala con echo
 // 4. Compara dos valores con == y con ===
 // 5. Usa var_dump() para ver el tipo de cada variable
+// Prueba RAma mayckel
