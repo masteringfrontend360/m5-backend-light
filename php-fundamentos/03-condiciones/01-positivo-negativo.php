@@ -17,6 +17,16 @@
 
     <?php
     // 1. Comprobar si se ha enviado el formulario
+    if( $_SERVER["REQUEST_METHOD"] == "POST"){
+    $numero = $_POST['numero'] ?? 0;
+        if($numero == 0){
+            echo "El numero es cero";
+        } elseif($numero > 0){
+            echo "El numero es positivo";
+        } else {
+            echo "El numero es negativo";
+        }
+    }
     // 2. Recuperar el número enviado
     // 3. Usar if / elseif / else para mostrar:
     //    - "El número es positivo"

@@ -6,7 +6,7 @@ $decimal = 3.14;
 $cadena = "Hola, soy una cadena de texto";
 
 // 2. Crea una constante con tu nombre
-define("NOMBRE", "Tu Nombre");
+define("NOMBRE", "Ana");
 
 // 3. Haz una suma y muéstrala con echo
 $suma = $numero + $decimal;
@@ -17,7 +17,7 @@ $valor1 = 5;
 $valor2 = "5";
 echo "Comparación con ==: " . ($valor1 == $valor2 ? "Iguales" : "Diferentes") . "<br>";
 echo "Comparación con ===: " . ($valor1 === $valor2 ? "Iguales" : "Diferentes") . "<br>";
-
+//prueba de commit
 // 5. Usa var_dump() para ver el tipo de cada variable
 var_dump($numero);
 var_dump($decimal);

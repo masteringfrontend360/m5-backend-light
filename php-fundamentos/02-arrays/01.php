@@ -5,10 +5,13 @@
 <?php
 // TODO: Crea un array indexado con 4 tecnologías que conoces
 //$tecnologias = ['ejemplo1', 'ejemplo2', 'ejemplo3', 'ejemplo4'];
-
+$tech = ["REACT", "Angular", "Vue", "JavaScript"];
 // TODO: Muestra el primer elemento (índice 0)
-?>
+echo $tech[0];
 
-<!-- TODO: Muestra el último elemento (índice 3 o count()-1) -->
+// <!-- TODO: Muestra el último elemento (índice 3 o count()-1) -->
+
+echo $tech[count($tech) - 1];
+ ?>
 </body>
 </html>
