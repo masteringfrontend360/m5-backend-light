@@ -5,7 +5,7 @@
 // 3. Haz una suma y muéstrala con echo
 // 4. Compara dos valores con == y con ===
 // 5. Usa var_dump() para ver el tipo de cada variable
-<?php
+
 $edad = 41;
 $precio = 19.99;
 $nombre = "Antonio";
