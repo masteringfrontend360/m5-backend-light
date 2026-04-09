@@ -1,0 +1,14 @@
+# OS/Editor
+.DS_Store
+.vscode/
+*.swp
+*.swo
+
+# PHP
+*.log
+cache/
+vendor/
+.env
+
+# WSL/Debian
+soluciones/
