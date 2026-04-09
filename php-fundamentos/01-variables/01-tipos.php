@@ -31,3 +31,5 @@ echo $suma_ab;
 // 4. Compara dos valores con == y con ===
 2 == "2";
 2 === "2";
+
+// 5. Usa var_dump() para ver el tipo de cada variable
