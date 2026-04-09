@@ -33,3 +33,6 @@ echo $suma_ab;
 2 === "2";
 
 // 5. Usa var_dump() para ver el tipo de cada variable
+var_dump($cancion);
+var_dump($artista);
+var_dump($album);
