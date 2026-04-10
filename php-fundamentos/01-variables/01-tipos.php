@@ -16,7 +16,7 @@ $n1 = 1;
 $n2 = 3;
 $suma = $n1 + $n2;
 
-echo "La suma de $n1 + $ $n2 = $suma";
+echo "La suma de $n1 + $n2 = $suma";
 
 var_dump(5=='5'); // true
 var_dump(5==='5'); // false
