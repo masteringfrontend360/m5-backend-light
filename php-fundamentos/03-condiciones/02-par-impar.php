@@ -21,8 +21,10 @@
         $numero = $_POST['numero'] ?? 0;
 
         if($numero % 2 == 0){
-
-        }
+             echo "El numero ". $numero . " es par";  }
+            else {
+                echo "El numero " . $numero . "es impar";
+            }
     }
 
     // 2. Recuperar el número entero

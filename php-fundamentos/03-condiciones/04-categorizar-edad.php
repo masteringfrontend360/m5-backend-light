@@ -25,6 +25,16 @@
     //    - Jubilado: 65 o más
     // Ordena bien las condiciones para que ninguna se pise (piensa en rangos).
     // 4. Mostrar el mensaje de categoría
+    if($_SERVER["REQUEST_METHOD"] == "POST"){
+        $edad = intval($_POST['edad'] ?? -1);
+        if( $edad < 0){
+            echo "La edad no puede ser negativa";
+        }
+         else if($edad)
+            
+
+        
+    }
     ?>
 </body>
 </html>
