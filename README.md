@@ -94,6 +94,14 @@ git checkout nombreRama     # Cambia a tu rama local (ya sincronizada)
 git pull origin nombreRama  # Fusiona cambios de TU rama remota con la local
 git status                  # ✅ VERIFICA todo OK
 ```
+### 7. Dar por bueno un ejercicio o set de ejercicios de un rama y añadirlo a la rama principal
+```bash
+git checkout main           # Cambia a tu rama a main
+git pull origin main        # Asegúrate que tienes el último estado de main
+git checkout nombreRama -- ruta/del/fichero.txt
+git commit -m "Copiar fichero desde nombreRama"
+git push origin main
+```
 
 ## 🛠️ Entorno desarrollo
 
