@@ -12,5 +12,6 @@ $precio = 100;
 $preciofinal = $precio + ($precio * IVA);
 
 // 4. Muestra el nombre de la tienda y el precio final
-echo 'nombre de la tienda: ' . tienda . '<br>';
+echo 'nombre de la tienda: ' . TIENDA . '<br>';
 echo 'precio final del producto: ' . $preciofinal;
+?>
