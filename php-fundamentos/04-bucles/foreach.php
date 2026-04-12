@@ -28,21 +28,17 @@ Guía:
             max-width: 800px;
             margin: 30px auto;
         }
-
         form {
             display: grid;
             gap: 12px;
         }
-
         label {
             font-weight: bold;
         }
-
         input, textarea, select, button {
             padding: 8px;
             font-size: 16px;
         }
-
         textarea {
             min-height: 120px;
         }
@@ -107,6 +103,24 @@ Guía:
     <hr>
 
     <?php
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+    echo "<h2>Datos recibidos:</h2>";
+    echo "<ul>";
+
+    foreach ($_POST as $campo => $valor) {
+
+        if (!empty($valor)) {
+            echo "<li><strong>$campo:</strong> $valor</li>";
+        }
+    }
+
+    echo "</ul>";
+}
+?>
+    
+    
+    
     // TODO:
     // 1. Comprobar si el formulario se ha enviado.
     // 2. Recorrer el array $_POST con foreach.

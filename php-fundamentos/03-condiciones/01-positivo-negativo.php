@@ -18,7 +18,7 @@
     <?php
     if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['numero'])) {
     $numero = floatval($_POST['numero']);
-    echo $numero;
+  
     }
         if ($numero > 0) {
         echo "<p>El número es positivo</p>";
