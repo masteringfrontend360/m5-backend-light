@@ -260,9 +260,3 @@ _ `trim()` - Limpiar títulos
 ❌ No crees funciones propias.  
 ❌ No uses `filter()` (no visto aún).  
 ❌ No hardcodees las fechas (deben procesarse dinámicamente).  
-
-### Entrega
-
-**Carpeta:** `php-fundamentos/funciones-predefinidas/10-posts-wp/`
-
-**README.md requerido:**
