@@ -73,7 +73,7 @@ Más adelante, en proyectos reales, esta validación manual se suele sustituir p
      - Guarda `$_SESSION['old'] = $_POST` (lo que el usuario escribió).
      - Redirige a `formulario.php`.
    - Si no hay errores:
-     - (En el curso de CRUD) se conectará a la BD con PDO y se hará el `INSERT` con sentencias preparadas.
+     - (En el módulo de CRUD) se conectará a la BD con PDO y se hará el `INSERT` con sentencias preparadas.
 4. `formulario.php`:
    - Lee `$_SESSION['errores']` y `$_SESSION['old']` si existen.
    - Muestra los errores bajo cada campo.
@@ -180,10 +180,11 @@ En proyectos reales, se suelen usar:
   y generan automáticamente los mensajes de error.
 - **Librerías de validación** como Respect/Validation para PHP “vanilla”.
 
-Este ejemplo sirve como base conceptual para que, cuando vean esas herramientas, entiendan **qué problema les están resolviendo**.
+Este ejemplo sirve como base conceptual para entender **qué problema se están resolviendo**.
 
 ---
 
-## 💡 Frase resumen para el alumnado
+## 💡 Resumen 
+> “Primero validamos a mano para entender el mecanismo: normalizar → validar → si error, volver con errores y old.
 
-> “Primero validamos a mano para entender el mecanismo: normalizar → validar → si error, volver con errores y old. Luego, en proyectos serios, usamos librerías o frameworks para no reescribir esa lógica una y otra vez.”
+> Luego, en proyectos profesionales, usamos librerías o frameworks para no reescribir esa lógica una y otra vez.”
