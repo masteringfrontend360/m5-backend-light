@@ -5,6 +5,11 @@
 // Usar un bucle for para encontrar el primer número divisible por 7
 // entre 1 y 100, y detener la ejecución con break al encontrarlo.
 
+
+for ($contador = 1; )
+
+
+
 // Ejercicio 2:
 // Usar un bucle for para mostrar los números del 1 al 20,
 // saltando los múltiplos de 3 con continue.
