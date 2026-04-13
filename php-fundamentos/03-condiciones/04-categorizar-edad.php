@@ -9,10 +9,10 @@
 <body>
     <h1>Clasificación por edad</h1>
 
-    <form method="post">
+    <form method="get">
         <label>
             Introduce tu edad:
-            <input type="number" name="edad" min="0">
+            <input type="number" name="edad" min="0" max="110">
         </label>
         <button type="submit">Clasificar</button>
     </form>
