@@ -11,8 +11,16 @@ $producto = [
  'stock' => ...
  ];
  */
+$memoria_ram = [
+'nombre' => 'DDR5-16GB',
+'precio' => '180-Euros',
+'stock' => 6
+];
 // TODO: Muestra el nombre
+echo $memoria_ram['nombre'];
+echo '<br>';
 // TODO: Muestra el precio
+echo $memoria_ram['precio'];
 ?>
 </body>
 </html>
