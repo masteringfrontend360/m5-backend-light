@@ -26,6 +26,7 @@
     // 4. Mostrar el nombre del día o un mensaje de error si el número es inválido
 
     // Repetir usando match para devolver el nombre del día.
+    
     ?>
 </body>
 </html>

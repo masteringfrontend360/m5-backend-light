@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <title>Clasificación por edad</title>
 </head>
+
 <body>
     <h1>Clasificación por edad</h1>
 
@@ -25,16 +27,21 @@
     //    - Jubilado: 65 o más
     // Ordena bien las condiciones para que ninguna se pise (piensa en rangos).
     // 4. Mostrar el mensaje de categoría
-    if($_SERVER["REQUEST_METHOD"] == "POST"){
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $edad = intval($_POST['edad'] ?? -1);
-        if( $edad < 0){
+        if ($edad < 0) {
             echo "La edad no puede ser negativa";
+        } else if ($edad <= 12) {
+            echo "Eres un niño";
+        } else if ($edad <= 17) {
+            echo "Eres un adolescente";
+        } else if ($edad <= 64) {
+            echo "Eres un adulto";
+        } else {
+            echo "Eres un jubilado";
         }
-         else if($edad)
-            
-
-        
     }
     ?>
 </body>
+
 </html>

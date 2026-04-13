@@ -23,10 +23,10 @@
     // 4. Usar if / else para mostrar "Aprobado" o "Suspendido"
 
     // OPCIONAL:
-    // $_SERVER["REQUEST_METHOD"] == "POST"
-// → comprueba que el formulario se ha enviado
-// isset($_POST['nota'])
-// → comprueba que el campo nota existe
+          // $_SERVER["REQUEST_METHOD"] == "POST"
+          // → comprueba que el formulario se ha enviado
+         // isset($_POST['nota'])
+         // → comprueba que el campo nota existe
     // - Repite la lógica usando el operador ternario en una variable,
     //   y luego muestra el mensaje con echo.
     // piensa en: condición ? valor_si_verdadero : valor_si_falso
