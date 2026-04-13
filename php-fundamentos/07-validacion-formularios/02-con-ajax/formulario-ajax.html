@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario AJAX con PHP</title>
+</head>
+<body>
+    <h1>Formulario con AJAX</h1>
+    <p>Ejemplo de validación en PHP devolviendo JSON.</p>
+
+    <form id="formularioAjax" novalidate>
+        <div>
+            <label for="nombre">Nombre</label><br>
+            <input type="text" id="nombre" name="nombre">
+            <p id="error-nombre"></p>
+        </div>
+
+        <br>
+
+        <div>
+            <label for="email">Email</label><br>
+            <input type="email" id="email" name="email">
+            <p id="error-email"></p>
+        </div>
+
+        <br>
+
+        <button type="submit">Enviar</button>
+    </form>
+
+    <p id="mensaje"></p>
+
+    <script>
+        const formulario = document.getElementById('formularioAjax');
+        const errorNombre = document.getElementById('error-nombre');
+        const errorEmail = document.getElementById('error-email');
+        const mensaje = document.getElementById('mensaje');
+
+        formulario.addEventListener('submit', async function (e) {
+            e.preventDefault();
+
+            errorNombre.textContent = '';
+            errorEmail.textContent = '';
+            mensaje.textContent = '';
+
+            const datos = new FormData(formulario);
+
+            try {
+                const respuesta = await fetch('proceso-ajax.php', {
+                    method: 'POST',
+                    body: datos
+                });
+
+                const resultado = await respuesta.json();
+
+                if (!respuesta.ok) {
+                    if (resultado.errores?.nombre) {
+                        errorNombre.textContent = resultado.errores.nombre;
+                    }
+
+                    if (resultado.errores?.email) {
+                        errorEmail.textContent = resultado.errores.email;
+                    }
+
+                    return;
+                }
+
+                mensaje.textContent = resultado.mensaje;
+                formulario.reset();
+
+            } catch (error) {
+                mensaje.textContent = 'Ha ocurrido un error en la petición.';
+            }
+        });
+    </script>
+</body>
+</html>
