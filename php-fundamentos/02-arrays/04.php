@@ -18,6 +18,6 @@ $componentes = array(
 );
 // TODO: Accede y muestra el nombre del segundo producto (índice 1)
 ?>
-<pre><?php  print_r($tarjeta_grafica['nombre']); ?></pre>
+<pre><?php  print_r($componentes[1]['nombre']); ?></pre>
 </body>
 </html>
