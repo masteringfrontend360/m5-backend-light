@@ -17,15 +17,52 @@
 
     <?php
     // 1. Comprobar envío del formulario
-    // 2. Recuperar el número de día
-    // 3. Versión básica: usar if / elseif o switch
-    //    - 1: lunes
-    //    - 2: martes
-    //    - ...
-    //    - 7: domingo
-    // 4. Mostrar el nombre del día o un mensaje de error si el número es inválido
-
-    // Repetir usando match para devolver el nombre del día.
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        // 2. Recuperar el número de día
+        $dia = $_POST['dia'] ?? null;
+        
+        // 3. Versión básica: usar if / elseif para asignar días
+        if ($dia == 1) {
+            $nombreDia = "lunes";
+        } elseif ($dia == 2) {
+            $nombreDia = "martes";
+        } elseif ($dia == 3) {
+            $nombreDia = "miércoles";
+        } elseif ($dia == 4) {
+            $nombreDia = "jueves";
+        } elseif ($dia == 5) {
+            $nombreDia = "viernes";
+        } elseif ($dia == 6) {
+            $nombreDia = "sábado";
+        } elseif ($dia == 7) {
+            $nombreDia = "domingo";
+        } else {
+            $nombreDia = null; // Número inválido
+        }
+        
+        // 4. Mostrar el nombre del día o error
+        if ($nombreDia) {
+            echo "<p>El día $dia es $nombreDia.</p>";
+        } else {
+            echo "<p>Error: Introduce un número del 1 al 7.</p>";
+        }
+        
+        // Repetir usando match (PHP 8+)
+        $diaMatch = match ($dia) {
+            1 => "lunes",
+            2 => "martes",
+            3 => "miércoles",
+            4 => "jueves",
+            5 => "viernes",
+            6 => "sábado",
+            7 => "domingo",
+            default => null,
+        };
+        
+        if ($diaMatch) {
+            echo "<p>(Usando match: El día $dia es $diaMatch)</p>";
+        }
+    }
     ?>
 </body>
 </html>

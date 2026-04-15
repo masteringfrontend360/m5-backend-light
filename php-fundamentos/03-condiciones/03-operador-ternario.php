@@ -17,14 +17,26 @@
 
     <?php
     // 1. Comprobar que se ha enviado el formulario
-    // 2. Recuperar la nota
-    // 3. Comprobar que está entre 0 y 10 (validación básica). Añade una comprobación por si el usuario introduce una nota fuera de rango.
-    // 4. Usar if / else para mostrar "Aprobado" o "Suspendido"
-
-    // OPCIONAL:
-    // - Repite la lógica usando el operador ternario en una variable,
-    //   y luego muestra el mensaje con echo.
-    // piensa en: condición ? valor_si_verdadero : valor_si_falso
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        // 2. Recuperar la nota
+        $nota = $_POST['nota'] ?? null;
+        
+        // 3. Validación básica: comprobar que está entre 0 y 10
+        if ($nota < 0 || $nota > 10) {
+            echo "<p>Error: La nota debe estar entre 0 y 10.</p>";
+        } else {
+            // 4. Usar if / else para mostrar "Aprobado" o "Suspendido"
+            if ($nota >= 5) {
+                echo "<p>Aprobado con nota $nota.</p>";
+            } else {
+                echo "<p>Suspendido con nota $nota.</p>";
+            }
+            
+            // OPCIONAL: Repite la lógica usando el operador ternario
+            $resultado = ($nota >= 5) ? "Aprobado" : "Suspendido";
+            echo "<p>(Usando ternario: $resultado con nota $nota)</p>";
+        }
+    }
     ?>
 </body>
 </html>

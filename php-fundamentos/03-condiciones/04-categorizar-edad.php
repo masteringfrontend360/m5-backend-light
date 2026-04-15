@@ -17,14 +17,28 @@
 
     <?php
     // 1. Comprobar envío del formulario
-    // 2. Recuperar la edad. Valida que la edad no sea negativa antes de clasificar.
-    // 3. Usar una cadena de if / elseif / else para decidir:
-    //    - Niño: 0 a 12
-    //    - Adolescente: 13 a 17
-    //    - Adulto: 18 a 64
-    //    - Jubilado: 65 o más
-    // Ordena bien las condiciones para que ninguna se pise (piensa en rangos).
-    // 4. Mostrar el mensaje de categoría
+    if (isset($_GET['edad'])) {
+        // 2. Recuperar la edad y validar que no sea negativa
+        $edad = $_GET['edad'];
+        
+        if ($edad < 0) {
+            echo "<p>Error: La edad no puede ser negativa.</p>";
+        } else {
+            // 3. Usar if / elseif / else para clasificar
+            if ($edad <= 12) {
+                $categoria = "Niño";
+            } elseif ($edad <= 17) {
+                $categoria = "Adolescente";
+            } elseif ($edad <= 64) {
+                $categoria = "Adulto";
+            } else {
+                $categoria = "Jubilado";
+            }
+            
+            // 4. Mostrar el mensaje de categoría
+            echo "<p>Con $edad años, eres un $categoria.</p>";
+        }
+    }
     ?>
 </body>
 </html>

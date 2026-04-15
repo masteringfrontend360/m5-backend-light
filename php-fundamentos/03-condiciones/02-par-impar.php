@@ -17,9 +17,21 @@
 
     <?php
     // 1. Comprobar que se ha enviado el formulario
-    // 2. Recuperar el número entero
-    // 3. Usar el operador % (módulo) para decidir si es par o impar. Recuerda que un número es par si el resto de dividirlo entre 2 es 0.
-    // 4. Mostrar un mensaje con el resultado. Controla que el mensaje solo se vea después de enviar el formulario.
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        // 2. Recuperar el número entero
+        $numero = $_POST['numero'] ?? null;
+        
+        // 3. Usar el operador % para decidir si es par o impar
+        if ($numero % 2 === 0) {
+            // Si el resto de dividir por 2 es 0, es par
+            echo "<p>El número $numero es par.</p>";
+        } else {
+            // Si no, es impar
+            echo "<p>El número $numero es impar.</p>";
+        }
+        
+        // 4. El mensaje solo se muestra después de enviar (ya está controlado con el if)
+    }
     ?>
 </body>
 </html>
