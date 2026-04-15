@@ -61,21 +61,25 @@ Crea un formulario con un `<select>` que muestre localidades de Aragón (usa a
 
 **Enunciado:**
 
-Crea un array `$productos` con 4 productos (cada uno con `nombre`, `precio`, `stock`, `foto` como URL placeholder tipo `https://via.placeholder.com/200x150?text=Producto`).
+Crea un array `$productos` con 4 productos (cada uno con `nombre`, `precio`, `stock`, `foto` como URL placeholder tipo `https://placehold.co/300x200?text=Hello+World`).
 
 Muéstralos en tarjetas HTML.
 
-Añade un `<select>` para ordenar por precio (asc/desc). Al enviar, reordena con `asort()` o `arsort()` y muestra el catálogo ordenado.
+Añade un `<select>` para ordenar por precio (asc/desc). Al enviar, reordena con `usort()` y muestra el catálogo ordenado.
 
 **💡 Pistas:**
 
 1. Estructura: `$productos = [ ['nombre'=>'Camiseta', 'precio'=>19.95, 'stock'=>10, 'foto'=>'url'], ... ];`
 2. Tarjeta HTML: `<div class="producto"><img src="..."> <h3>...</h3> <p>€...</p></div>`.
-3. Ordena con `if ($_POST['orden'] == 'asc') asort($productos);` (usa clave `'precio'`).
+3. Ordena con `if ($_POST['orden'] === 'ASC'){
+     usort($productos, function ($a, $b) {
+            return $a['precio'] <=> $b['precio'];
+        })
+}`
 4. Este array es lo que devuelve `wc_get_products()`. 
 Transición:
 **$productos = [ ... ];  →  $productos = wc_get_products(['limit'=>4]);**
-5. **¡Prueba!** Usa `print_r($productos);` para depurar antes de mostrar.
+5. **¡Prueba!** Usa `echo '<pre>'; print_r($productos); echo '</pre>';` para depurar antes de mostrar.
 
 ---
 
