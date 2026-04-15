@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Prueba comentarios WP</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            background: #f4f4f4;
+            color: #333;
+        }
+
+        .box {
+            background: white;
+            padding: 24px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            max-width: 860px;
+        }
+
+        h1, h2 {
+            margin-top: 0;
+            color: #1d2327;
+        }
+
+        p {
+            line-height: 1.6;
+        }
+
+        .intro {
+            background: #eef4ff;
+            border-left: 4px solid #2271b1;
+            padding: 14px 16px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        .campo {
+            margin-bottom: 18px;
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 6px;
+        }
+
+        input,
+        textarea,
+        button {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccd0d4;
+            border-radius: 6px;
+        }
+
+        textarea {
+            min-height: 140px;
+            resize: vertical;
+        }
+
+        .hint {
+            display: block;
+            font-size: 14px;
+            color: #666;
+            margin-top: 6px;
+        }
+
+        button {
+            background: #0073aa;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+            width: auto;
+            padding: 12px 18px;
+        }
+
+        button:hover {
+            background: #005f8d;
+        }
+
+        .mini-box {
+            background: #f9f9f9;
+            border-left: 4px solid #72aee6;
+            padding: 14px 16px;
+            border-radius: 6px;
+            margin-top: 20px;
+        }
+
+        code {
+            background: #f0f0f0;
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="box">
+    <h1>Ejercicio 01 · Procesador de comentarios WordPress</h1>
+
+    <div class="intro">
+        <p><strong>Objetivo:</strong> enviar un comentario desde un formulario, limpiar los datos recibidos, validar su longitud y mostrar el resultado con un formato parecido al de WordPress.</p>
+        <p>En este ejercicio se trabajan funciones predefinidas como <code>trim()</code>, <code>htmlspecialchars()</code>, <code>strlen()</code>, <code>empty()</code>, <code>ucfirst()</code> y <code>strtolower()</code>.</p>
+    </div>
+
+    <h2>Formulario de prueba</h2>
+
+    <form method="POST" action="procesar-comentario.php">
+        <div class="campo">
+            <label for="nombre">Nombre</label>
+            <input id="nombre" name="nombre" required>
+            <span class="hint">Debe tener entre 2 y 50 caracteres.</span>
+        </div>
+
+        <div class="campo">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" required>
+            <span class="hint">Debe tener entre 5 y 100 caracteres.</span>
+        </div>
+
+        <div class="campo">
+            <label for="comentario">Comentario</label>
+            <textarea id="comentario" name="comentario" required></textarea>
+            <span class="hint">Debe tener entre 10 y 500 caracteres.</span>
+        </div>
+
+        <button type="submit">Publicar comentario</button>
+    </form>
+
+    <div class="mini-box">
+        <strong>Pruebas recomendadas:</strong>
+        <p>
+            Nombre válido: <code>Ana García</code><br>
+            Email válido: <code>ANA@EMAIL.COM</code><br>
+            Comentario válido: un texto de más de 10 caracteres<br><br>
+            También puedes probar errores como:
+            nombre demasiado corto, email sin arroba o comentario demasiado breve.
+        </p>
+    </div>
+</div>
+
+</body>
+</html>

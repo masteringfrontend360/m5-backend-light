@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario AJAX con PHP</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            background: #f4f4f4;
+            color: #333;
+        }
+
+        .box {
+            background: #ffffff;
+            padding: 24px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            max-width: 860px;
+        }
+
+        h1, h2 {
+            margin-top: 0;
+            color: #1d2327;
+        }
+
+        p {
+            line-height: 1.6;
+        }
+
+        .intro {
+            background: #eef4ff;
+            border-left: 4px solid #2271b1;
+            padding: 14px 16px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+        }
+
+        .campo {
+            margin-bottom: 18px;
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 6px;
+        }
+
+        input,
+        button {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccd0d4;
+            border-radius: 6px;
+        }
+
+        .hint {
+            display: block;
+            font-size: 14px;
+            color: #666;
+            margin-top: 6px;
+        }
+
+        .error {
+            margin-top: 8px;
+            background: #fff1f1;
+            border-left: 4px solid #d63638;
+            padding: 10px 12px;
+            border-radius: 6px;
+            color: #7a1f1f;
+            min-height: 20px;
+        }
+
+        .input-error {
+            border-color: #d63638;
+            background: #fff8f8;
+        }
+
+        .ok {
+            background: #edfaef;
+            border-left: 4px solid #00a32a;
+            padding: 12px 16px;
+            margin-top: 18px;
+            border-radius: 6px;
+        }
+
+        .error-general {
+            background: #fff1f1;
+            border-left: 4px solid #d63638;
+            padding: 12px 16px;
+            margin-top: 18px;
+            border-radius: 6px;
+        }
+
+        .procesando {
+            background: #fff8e5;
+            border-left: 4px solid #dba617;
+            padding: 12px 16px;
+            margin-top: 18px;
+            border-radius: 6px;
+        }
+
+        button {
+            background: #0073aa;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+            width: auto;
+            padding: 12px 18px;
+        }
+
+        button:hover {
+            background: #005f8d;
+        }
+
+        button:disabled {
+            background: #7e8993;
+        }
+
+        .mini-box {
+            background: #f6f7f7;
+            border-left: 4px solid #72aee6;
+            padding: 14px 16px;
+            border-radius: 6px;
+            margin-top: 20px;
+        }
+
+        code {
+            background: #f0f0f0;
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="box">
+    <h1>Ejercicio 02 · Validación con AJAX y JSON</h1>
+
+    <div class="intro">
+        <p><strong>Objetivo:</strong> validar un formulario sin recargar la página.</p>
+        <p>El navegador envía los datos con <code>fetch()</code>, PHP responde en <code>JSON</code> y JavaScript pinta los errores o el éxito directamente en pantalla.</p>
+        <p>Trabajamos <code>fetch()</code>, <code>FormData</code>, <code>trim()</code>, <code>strlen()</code>, <code>preg_match()</code>, <code>filter_var()</code> y códigos HTTP como <code>422</code>.</p>
+    </div>
+
+    <h2>Formulario AJAX</h2>
+
+    <form id="formularioAjax" novalidate>
+
+        <div class="campo">
+            <label for="nombre">Nombre</label>
+            <input type="text" id="nombre" name="nombre">
+            <span class="hint">Entre 2 y 50 caracteres. Solo letras y espacios.</span>
+            <div id="error-nombre" class="error"></div>
+        </div>
+
+        <div class="campo">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email">
+            <span class="hint">Debe ser un email válido.</span>
+            <div id="error-email" class="error"></div>
+        </div>
+
+        <button type="submit" id="botonEnviar">Validar con AJAX</button>
+
+    </form>
+
+    <div id="estado"></div>
+
+    <div class="mini-box">
+        <h2>Qué está pasando aquí</h2>
+        <ul>
+            <li>El formulario no se envía de forma clásica (no hay recarga).</li>
+            <li>Se usa <code>fetch()</code> para enviar los datos.</li>
+            <li>PHP devuelve un <code>JSON</code> en vez de HTML.</li>
+            <li>JavaScript interpreta la respuesta y pinta errores o éxito.</li>
+        </ul>
+    </div>
+
+    <div class="mini-box">
+        <h2>Qué hemos mejorado (nivel PRO)</h2>
+        <ul>
+            <li>Controlamos errores cuando el servidor no devuelve JSON válido.</li>
+            <li>Evitamos que la aplicación se rompa si hay fallos en PHP.</li>
+            <li>Mostramos mensajes claros al usuario en cualquier escenario.</li>
+        </ul>
+    </div>
+
+</div>
+
+<script>
+const formulario = document.getElementById('formularioAjax');
+const inputNombre = document.getElementById('nombre');
+const inputEmail = document.getElementById('email');
+const errorNombre = document.getElementById('error-nombre');
+const errorEmail = document.getElementById('error-email');
+const estado = document.getElementById('estado');
+const botonEnviar = document.getElementById('botonEnviar');
+
+function limpiarErrores() {
+    errorNombre.textContent = '';
+    errorEmail.textContent = '';
+    inputNombre.classList.remove('input-error');
+    inputEmail.classList.remove('input-error');
+    estado.innerHTML = '';
+}
+
+function mostrarProcesando() {
+    estado.innerHTML = '<div class="procesando">Procesando formulario...</div>';
+}
+
+function mostrarErrorGeneral(msg) {
+    estado.innerHTML = '<div class="error-general">' + msg + '</div>';
+}
+
+function mostrarExito(msg) {
+    estado.innerHTML = '<div class="ok">' + msg + '</div>';
+}
+
+formulario.addEventListener('submit', async function (e) {
+    e.preventDefault();
+
+    limpiarErrores();
+    mostrarProcesando();
+    botonEnviar.disabled = true;
+
+    const datos = new FormData(formulario);
+
+    try {
+        const respuesta = await fetch('proceso-ajax.php', {
+            method: 'POST',
+            body: datos
+        });
+
+        let resultado;
+
+        // 🔥 MEJORA PRO: control de JSON inválido
+        try {
+            resultado = await respuesta.json();
+        } catch {
+            mostrarErrorGeneral('Respuesta inválida del servidor.');
+            botonEnviar.disabled = false;
+            return;
+        }
+
+        if (!respuesta.ok) {
+            estado.innerHTML = '';
+
+            if (resultado.errores?.nombre) {
+                errorNombre.textContent = resultado.errores.nombre;
+                inputNombre.classList.add('input-error');
+            }
+
+            if (resultado.errores?.email) {
+                errorEmail.textContent = resultado.errores.email;
+                inputEmail.classList.add('input-error');
+            }
+
+            botonEnviar.disabled = false;
+            return;
+        }
+
+        mostrarExito(resultado.mensaje);
+        formulario.reset();
+        botonEnviar.disabled = false;
+
+    } catch (error) {
+        mostrarErrorGeneral('Error en la petición AJAX.');
+        botonEnviar.disabled = false;
+    }
+});
+</script>
+
+</body>
+</html>
