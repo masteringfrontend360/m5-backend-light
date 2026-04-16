@@ -62,7 +62,9 @@ if (!empty($errores)) {
     $_SESSION['errores'] = $errores;
     $_SESSION['old'] = $_POST;
 
-    header('Location: formulario.php');
+    // header('Location: formulario.php');
+        http_response_code(422);
+        include 'formulario.php';
     exit;
 }
 

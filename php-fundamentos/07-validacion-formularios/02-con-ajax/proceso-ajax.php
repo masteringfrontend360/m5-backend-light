@@ -17,7 +17,7 @@ $datosLimpios = [];
 | 2. Validación del nombre
 |--------------------------------------------------------------------------
 | - obligatorio
-| - longitud mínima y máxima
+| - longitud mínima y máximaz
 | - solo letras, espacios, apóstrofes y guiones
 */
 if ($nombre === '') {
@@ -65,7 +65,7 @@ if (!empty($errores)) {
         'errores' => $errores
     ]);
     exit;
-}
+}else{
 
 /*
 |--------------------------------------------------------------------------
@@ -99,3 +99,4 @@ echo json_encode([
     'ok' => true,
     'mensaje' => 'Formulario validado correctamente. Listo para guardar en base de datos.'
 ]);
+}
