@@ -78,7 +78,7 @@ Añade un `<select>` para ordenar por precio (asc/desc). Al enviar, reordena c
 }`
 4. Este array es lo que devuelve `wc_get_products()`. 
 Transición:
-**$productos = [ ... ];  →  $productos = wc_get_products(['limit'=>4]);**
+**$productos = [ ... ];  →  $produgitctos = wc_get_products(['limit'=>4]);**
 5. **¡Prueba!** Usa `echo '<pre>'; print_r($productos); echo '</pre>';` para depurar antes de mostrar.
 
 ---
