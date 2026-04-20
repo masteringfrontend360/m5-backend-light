@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            max-width: 600px;
+            margin: 2rem auto;
+            padding: 1rem;
+        }
+
+        .error {
+            background: #ffe0e0;
+            color: #cc0000;
+            padding: 1rem;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+        }
+
+        a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h1>⚠️ Error</h1>
+    
+    <div class="error">
+        <p><%= mensaje %></p>
+    </div>
+
+    <p><a href="/">← Volver al formulario</a></p>
+    <p><a href="/listado">← Ver listado de contactos</a></p>
+</body>
+</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listado contactos</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 1rem;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 12px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+
+        th {
+            background: #f5f5f5;
+            font-weight: bold;
+        }
+
+        .success {
+            color: green;
+            margin-bottom: 1rem;
+        }
+
+        a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .alerta {
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border-radius: 4px;
+        }
+
+        .alerta-success {
+            background: #e0ffe0;
+            color: #00cc00;
+            border: 1px solid #00aa00;
+        }
+
+        .alerta-error {
+            background: #ffe0e0;
+            color: #cc0000;
+            border: 1px solid #aa0000;
+        }
+
+        .btn-eliminar {
+            background: #ff4444;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+
+        .btn-eliminar:hover {
+            background: #cc0000;
+        }
+
+        #sin-contactos {
+            padding: 2rem;
+            text-align: center;
+            background: #f9f9f9;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <h1>📋 Contactos (<span id="contador-contactos"><%= contactos.length %></span>)</h1>
+
+    <% if (success) { %>
+        <p class="success">✅ Contacto guardado correctamente</p>
+    <% } %>
+
+    <div id="mensajes"></div>
+
+    <p><a href="/">➕ Añadir nuevo contacto</a></p>
+
+    <div id="sin-contactos">
+        <p>📭 No hay contactos aún. ¡Añade el primero!</p>
+    </div>
+
+    <% if (contactos.length > 0) { %>
+        <table id="tabla-contactos">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Email</th>
+                    <th>Ciudad</th>
+                    <th>Fecha</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% contactos.forEach(contacto => { %>
+                    <tr>
+                        <td><%= contacto.id %></td>
+                        <td><%= contacto.nombre %></td>
+                        <td><%= contacto.email %></td>
+                        <td><%= contacto.ciudad || '' %></td>
+                        <td><%= new Date(contacto.created_at).toLocaleString('es-ES') %></td>
+                        <td>
+                            <button class="btn-eliminar" onclick="eliminarContactoFetch(<%= contacto.id %>)">
+                                🗑️ Eliminar
+                            </button>
+                        </td>
+                    </tr>
+                <% }); %>
+            </tbody>
+        </table>
+    <% } %>
+
+    <script src="/js/app.js"></script>
+</body>
+</html>
