@@ -12,3 +12,6 @@ vendor/
 
 # WSL/Debian
 soluciones/
+
+#my_sql
+.env
