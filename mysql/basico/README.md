@@ -98,7 +98,7 @@ Crear fichero .gitignore básico
 declare(strict_types=1);
 
 // Cargar variables de entorno
-$dotenv = parse_ini_file(__DIR_- . '/.env');
+$dotenv = parse_ini_file(__DIR__ . '/.env');
 
 // Comprueba si .env se ha leído correctamente antes de usarlo.
 if ($dotenv === false) {
