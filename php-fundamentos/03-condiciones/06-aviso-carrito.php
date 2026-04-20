@@ -24,3 +24,20 @@ $carrito = [
 4. ¿Te animas con sintaxis alternativa para meter el HTML?
 
 --- -->
+<?php
+$carrito = [
+    ['nombre' => 'Camiseta', 'precio' => 19.99, 'cantidad' => 2],
+    ['nombre' => 'Pantalón', 'precio' => 39.99, 'cantidad' => 1]
+];
+// $carrito = [];       
+
+if (empty($carrito)) {
+    echo "Tu carrito está vacío 😔";
+} else {
+    $totalProductos = 0;
+    foreach ($carrito as $producto) {
+        $totalProductos += $producto['cantidad'];
+    }
+    echo "Tienes $totalProductos productos en el carrito";
+}
+?>  
