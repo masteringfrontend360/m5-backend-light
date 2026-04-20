@@ -8,12 +8,17 @@
     "start": "node index.js",
     "dev": "node --watch index.js"
   },
-  "keywords": ["express", "mysql", "contactos"],
+  "keywords": [
+    "express",
+    "mysql",
+    "contactos"
+  ],
   "author": "",
   "license": "MIT",
   "dependencies": {
+    "dotenv": "^16.3.1",
+    "ejs": "^5.0.2",
     "express": "^4.18.2",
-    "mysql2": "^3.6.0",
-    "dotenv": "^16.3.1"
+    "mysql2": "^3.6.0"
   }
 }
