@@ -14,13 +14,11 @@ for ($i=1; $i <= 100; $i++) {
 // Ejercicio 2:
 // Usar un bucle for para mostrar los números del 1 al 20,
 // saltando los múltiplos de 3 con continue.
-for ($i=1; $i < 20; $i++) { 
+for ($i=1; $i <= 20; $i++) { 
     if ($i % 3 == 0) {
         continue;
-        echo 'los valores son ' . $i . '<br><br>';
-        # code...
     }
-    # code...
+    echo 'los valores son ' . $i . '<br><br>';
 }
 
 /*
