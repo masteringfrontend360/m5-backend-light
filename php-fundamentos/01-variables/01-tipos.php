@@ -22,6 +22,7 @@ if ($x === $y) {
     echo "Con ===, $x y $y no son iguales.";
 }
 // 5. Usa var_dump() para ver el tipo de cada variable
+<<<<<<< HEAD
 var_dump($nombre);
 var_dump($edad);
 var_dump($esEstudiante);
@@ -29,3 +30,21 @@ var_dump(MI_NOMBRE);
 var_dump($suma);
 var_dump($x);
 var_dump($y);
+=======
+
+$nombre = 'Delia';
+$edad = 51;
+$profe = true;
+
+define ('NOMBRE', 'Ana Delia Campo');
+
+$n1 = 1;
+$n2 = 3;
+$suma = $n1 + $n2;
+
+echo "La suma de $n1 + $n2 = $suma";
+
+var_dump(5=='5'); // true
+var_dump(5==='5'); // false
+var_dump($nombre, $edad, $profe);
+>>>>>>> delia

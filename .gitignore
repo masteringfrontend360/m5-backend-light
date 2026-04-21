@@ -3,6 +3,7 @@
 .vscode/
 *.swp
 *.swo
+.ddev
 
 # PHP
 *.log
@@ -12,3 +13,4 @@ vendor/
 
 # WSL/Debian
 soluciones/
+pruebas/
