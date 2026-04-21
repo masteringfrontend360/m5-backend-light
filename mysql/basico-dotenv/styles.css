@@ -1,0 +1,165 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 40px;
+    background: #f4f4f4;
+    color: #333;
+}
+
+.box {
+    background: #ffffff;
+    padding: 24px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    max-width: 860px;
+}
+
+h1,
+h2 {
+    margin-top: 0;
+    color: #1d2327;
+}
+
+p {
+    line-height: 1.6;
+}
+
+.intro {
+    background: #eef4ff;
+    border-left: 4px solid #2271b1;
+    padding: 14px 16px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+}
+
+.campo {
+    margin-bottom: 18px;
+}
+
+label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 6px;
+}
+
+input,
+button,
+textarea,
+select {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccd0d4;
+    border-radius: 6px;
+}
+
+.hint {
+    display: block;
+    font-size: 14px;
+    color: #666;
+    margin-top: 6px;
+}
+
+button,
+.boton-enlace {
+    background: #0073aa;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    width: auto;
+    padding: 12px 18px;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 6px;
+}
+
+button:hover,
+.boton-enlace:hover {
+    background: #005f8d;
+}
+
+.boton-secundario {
+    background: #50575e;
+}
+
+.boton-secundario:hover {
+    background: #3c434a;
+}
+
+.mini-box {
+    background: #f6f7f7;
+    border-left: 4px solid #72aee6;
+    padding: 14px 16px;
+    border-radius: 6px;
+    margin-top: 20px;
+}
+
+.acciones {
+    margin-top: 18px;
+}
+
+.ok {
+    background: #edfaef;
+    border-left: 4px solid #00a32a;
+    padding: 12px 16px;
+    margin-bottom: 20px;
+    border-radius: 6px;
+}
+
+.error {
+    background: #fff1f1;
+    border-left: 4px solid #d63638;
+    padding: 12px 16px;
+    margin-bottom: 20px;
+    border-radius: 6px;
+}
+
+.warning {
+    background: #fff8e5;
+    border-left: 4px solid #dba617;
+    padding: 12px 16px;
+    margin-bottom: 20px;
+    border-radius: 6px;
+}
+
+code {
+    background: #f0f0f0;
+    padding: 2px 6px;
+    border-radius: 4px;
+}
+
+ul {
+    padding-left: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background: #ffffff;
+}
+
+th,
+td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: left;
+    vertical-align: top;
+}
+
+th {
+    background: #f5f5f5;
+    font-weight: bold;
+}
+
+@media (max-width: 768px) {
+    body {
+        margin: 20px;
+    }
+
+    .box {
+        padding: 18px;
+    }
+}
