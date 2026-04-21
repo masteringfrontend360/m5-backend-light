@@ -105,8 +105,10 @@ try {
         ':ciudad' => $ciudad
     ]);
 
-    header('Location: listado.php?success=1');
-    exit;
+    echo json_encode([
+    'ok' => true,
+    'redirectTo' => 'listado.php'
+]);
 } catch (PDOException $e) {
     if ($e->errorInfo[1] === 1062) {
         $errores['email'] = 'Ya existe un contacto con ese email.';
@@ -117,10 +119,15 @@ try {
             'errores' => $errores
         ]);
         exit;
-    } else {
-        // echo $e->getMessage();
-        // echo '❌ Error al guardar el contacto';
-    }
+    } 
+    http_response_code(500);
+        echo json_encode([
+            'ok' => false,
+            'errores' => [
+                'general' => 'Error interno al guardar el contacto.'
+            ]
+        ]);
+        exit;
 }
 /*
 |--------------------------------------------------------------------------
