@@ -2,6 +2,7 @@
 declare(strict_types=1);
 
 require 'conexion.php';
+require 'functions.php';
 
 // Solo permitir método POST
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
@@ -40,29 +41,10 @@ if (mb_strlen($ciudad) > 50) {
 }
 
 // Insertar datos con sentencia preparada
-try {
-    $sql = "INSERT INTO contactos (nombre, email, ciudad)
-            VALUES (:nombre, :email, :ciudad)";
-
-    $stmt = $pdo->prepare($sql);
-
-    $stmt->execute([
-        ':nombre' => $nombre,
-        ':email'  => $email,
-        ':ciudad' => $ciudad
-    ]);
-
+if (saveContact($pdo, $nombre, $email, $ciudad)) {
     header('Location: listado.php?success=1');
     exit;
-} catch (PDOException $e) {
-    // http_response_code(500);
-    // echo '❌ Error al guardar el contacto';
-
-    //  Código de error 1062 = entrada duplicada en MySQL
-    if ($e->errorInfo[1] === 1062) {
-        echo '❌ Ya existe un contacto con ese email';
-    } else {
-        echo '❌ Error al guardar el contacto';
-    }
+} else {
+    echo '❌ Error al guardar el contacto';
 }
 ?>
