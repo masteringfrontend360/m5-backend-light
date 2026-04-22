@@ -10,9 +10,15 @@ Básico - Refuerza `trim()`, `htmlspecialchars()`, `strlen()` y `empty()`.
 Crea un fichero `procesar-comentario.php` en `php-fundamentos/funciones-predefinidas/10-comentarios-wp/` que:
 
 #### 1. Reciba datos de formulario
+<<<<<<< HEAD
 - `$_POST['nombre']`  
 - `$_POST['email']`  
 - `$_POST['comentario']`
+=======
+_ `$_POST['nombre']`  
+_ `$_POST['email']`  
+_ `$_POST['comentario']`
+>>>>>>> origin/delia
 
 #### 2. Aplique limpieza básica
 
@@ -23,9 +29,15 @@ $comentarioLimpio = trim(htmlspecialchars($_POST['comentario'] ?? ''));
 ```
 
 #### 3. Valide longitud
+<<<<<<< HEAD
 - Nombre: 2-50 caracteres (`strlen($nombreLimpio)` debe estar entre 2 y 50)  
 - Email: 5-100 caracteres  
 - Comentario: 10-500 caracteres  
+=======
+_ Nombre: 2-50 caracteres (`strlen($nombreLimpio)` debe estar entre 2 y 50)  
+_ Email: 5-100 caracteres  
+_ Comentario: 10-500 caracteres  
+>>>>>>> origin/delia
 
 Si alguna validación falla, muestra un mensaje de error específico y no procesa el comentario.
 
@@ -79,6 +91,7 @@ Si todas las validaciones pasan, muestra:
 
 ### Pruebas recomendadas
 
+<<<<<<< HEAD
 - **Datos válidos:** `Ana García`, `ana@ejemplo.com`, comentario de 20 caracteres.  
 - **Nombre corto:** `A` (debe fallar).  
 - **Nombre largo:** 60 caracteres (debe fallar).  
@@ -93,6 +106,22 @@ Si todas las validaciones pasan, muestra:
 - `empty()` - Comprobar campos vacíos  
 - `ucfirst()` - Formatear nombre  
 - `strtolower()` - Normalizar email  
+=======
+_ **Datos válidos:** `Ana García`, `ana@ejemplo.com`, comentario de 20 caracteres.  
+_ **Nombre corto:** `A` (debe fallar).  
+_ **Nombre largo:** 60 caracteres (debe fallar).  
+_ **Email sin arroba:** `ana.ejemplo.com` (debe fallar).  
+_ **Espacios extra:** `"  Ana  "`, `"ANA@EMAIL.COM"` (debe limpiarse correctamente).  
+
+### Funciones que debes usar
+
+_ `trim()` - Quitar espacios  
+_ `htmlspecialchars()` - Sanitizar HTML  
+_ `strlen()` - Validar longitud  
+_ `empty()` - Comprobar campos vacíos  
+_ `ucfirst()` - Formatear nombre  
+_ `strtolower()` - Normalizar email  
+>>>>>>> origin/delia
 
 ---
 
@@ -120,6 +149,7 @@ $carrito = [
 
 Tu archivo `carrito.php` debe responder a estas acciones por URL:
 
+<<<<<<< HEAD
 - `?accion=anadir&producto=Calcetines&precio=12.50`  
 - `?accion=quitar`  
 - `?accion=ver`
@@ -131,6 +161,19 @@ Tu archivo `carrito.php` debe responder a estas acciones por URL:
 - **Contar productos:** `count($carrito)`  
 - **Calcular total:** Suma precios con `array_reduce()`  
 - **Mostrar lista:** `implode()` para lista + `number_format()` para precios  
+=======
+_ `?accion=anadir&producto=Calcetines&precio=12.50`  
+_ `?accion=quitar`  
+_ `?accion=ver`
+
+#### 3. Funciones de carrito
+
+_ **Añadir producto:** `array_push($carrito, $nuevoProducto)`  
+_ **Quitar último:** `array_pop($carrito)`  
+_ **Contar productos:** `count($carrito)`  
+_ **Calcular total:** Suma precios con `array_reduce()`  
+_ **Mostrar lista:** `implode()` para lista + `number_format()` para precios  
+>>>>>>> origin/delia
 
 #### 4. Salida esperada
 
@@ -142,6 +185,7 @@ TOTAL: €59,45
 ```
 ### Pruebas recomendadas
 
+<<<<<<< HEAD
 - Abre `carrito.php` → debe mostrar carrito inicial con 2 productos.  
 - `?accion=anadir&producto=Calcetines&precio=12.50` → 3 productos, total actualizado.  
 - `?accion=quitar` → vuelve a 2 productos.  
@@ -155,16 +199,34 @@ TOTAL: €59,45
 - `implode()` - Lista de productos  
 - `number_format()` - Formatear precios  
 - `filter_var()` - Validar precio numérico  
+=======
+_ Abre `carrito.php` → debe mostrar carrito inicial con 2 productos.  
+_ `?accion=anadir&producto=Calcetines&precio=12.50` → 3 productos, total actualizado.  
+_ `?accion=quitar` → vuelve a 2 productos.  
+_ Prueba precio inválido → no añade producto.
+
+### Funciones que debes usar
+
+_ `count()` - Número de productos  
+_ `array_push()` - Añadir producto  
+_ `array_pop()` - Quitar último  
+_ `implode()` - Lista de productos  
+_ `number_format()` - Formatear precios  
+_ `filter_var()` - Validar precio numérico  
+>>>>>>> origin/delia
 
 ## Ejercicio 3: Listado posts WordPress mejorado
 
 ### Nivel
 Avanzado - Refuerza `date()`, `gettype()`, `in_array()`, `ucfirst()`, `str_replace()`.
 
+<<<<<<< HEAD
 ### Enunciado
 
 En `php-fundamentos/funciones-predefinidas/posts-wp/` simula `single.php` de WordPress procesando un listado de posts.
 
+=======
+>>>>>>> origin/delia
 #### 1. Array posts inicial
 
 Parte de este array simulado de posts:
@@ -181,18 +243,31 @@ $posts = [
 #### 2. Parámetros GET
 
 Debe filtrar por categoría con `$_GET['cat']`:
+<<<<<<< HEAD
 - `?cat=php` → solo posts con categoría 'php'  
 - Sin parámetro → todos los posts
+=======
+`?cat=php` → solo posts con categoría 'php'  
+_ Sin parámetro → todos los posts
+>>>>>>> origin/delia
 
 #### 3. Procesar cada post
 
 **Para cada post del array, debes:**
 
+<<<<<<< HEAD
 - **Limpiar título:** `ucfirst(strtolower(trim($post['titulo'])))`  
 - **Formatear fecha:** `date('d/m/Y', strtotime($post['fecha']))` (convierte timestamp o string)  
 - **Debug tipo fecha:** Usa `gettype($post['fecha'])` para mostrar el tipo  
 - **Badge especial:** Si `in_array('destacado', $post['categorias'])` → mostrar badge ⭐  
 - **Limpiar categorías:** `str_replace()` para cambiar 'backend' por 'Backend'
+=======
+_ **Limpiar título:** `ucfirst(strtolower(trim($post['titulo'])))`  
+_ **Formatear fecha:** `date('d/m/Y', strtotime($post['fecha']))` (convierte timestamp o string)  
+_ **Debug tipo fecha:** Usa `gettype($post['fecha'])` para mostrar el tipo  
+_ **Badge especial:** Si `in_array('destacado', $post['categorias'])` → mostrar badge ⭐  
+_ **Limpiar categorías:** `str_replace()` para cambiar 'backend' por 'Backend'
+>>>>>>> origin/delia
 
 #### 4. Salida HTML como loop WordPress
 
@@ -212,13 +287,21 @@ Debe filtrar por categoría con `$_GET['cat']`:
 
 ### Pistas (NO copies este código)
 
+<<<<<<< HEAD
 - **Convertir fecha:**  
+=======
+_ **Convertir fecha:**  
+>>>>>>> origin/delia
 ```php
 $timestamp = strtotime($post['fecha']);
 $fechaFormateada = date('d/m/Y', $timestamp);
 ```
 
+<<<<<<< HEAD
 - **Filtrar por categoría:**  
+=======
+_ **Filtrar por categoría:**  
+>>>>>>> origin/delia
 ```php
 $postsFiltrados = [];
 foreach ($posts as $post) {
@@ -228,7 +311,11 @@ foreach ($posts as $post) {
 }
 ```
 
+<<<<<<< HEAD
 - **Limpiar categorías:**  
+=======
+_ **Limpiar categorías:**  
+>>>>>>> origin/delia
 ```php
 foreach ($post['categorias'] as &$cat) {
     $cat = str_replace('backend', 'Backend', $cat);
@@ -237,6 +324,7 @@ foreach ($post['categorias'] as &$cat) {
 
 ### Pruebas recomendadas
 
+<<<<<<< HEAD
 - Abre `posts-wp.php` → muestra los 4 posts formateados.  
 - `?cat=php` → solo 2 posts (PHP funciones + WooCommerce).  
 - Verifica que títulos tengan primera letra mayúscula y espacios quitados.  
@@ -253,6 +341,24 @@ foreach ($post['categorias'] as &$cat) {
 - `str_replace()` - Limpiar nombres de categorías  
 - `strtotime()` - Convertir fechas a timestamp  
 - `trim()` - Limpiar títulos  
+=======
+_ Abre `posts-wp.php` → muestra los 4 posts formateados.  
+_ `?cat=php` → solo 2 posts (PHP funciones + WooCommerce).  
+_ Verifica que títulos tengan primera letra mayúscula y espacios quitados.  
+_ Verifica que fechas estén en formato `dd/mm/yyyy`.  
+_ El post de WooCommerce debe mostrar badge ⭐.  
+_ Debug debe mostrar tipos `string` o `integer` según la fecha.
+
+### Funciones que debes usar
+
+_ `date()` - Formatear fecha legible  
+_ `gettype()` - Debug tipo de datos fecha  
+_ `in_array()` - Detectar posts destacados  
+_ `ucfirst()` - Primera letra del título  
+_ `str_replace()` - Limpiar nombres de categorías  
+_ `strtotime()` - Convertir fechas a timestamp  
+_ `trim()` - Limpiar títulos  
+>>>>>>> origin/delia
 
 ### Qué NO hacer
 

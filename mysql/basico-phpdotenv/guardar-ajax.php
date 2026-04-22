@@ -1,6 +1,14 @@
 <?php
 header('Content-Type: application/json; charset=UTF-8');
 
+
+// Solo permitir método POST
+if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+    http_response_code(405);
+    exit('Método no permitido');
+}
+
+
 /*
 |--------------------------------------------------------------------------
 | 1. Normalizar datos de entrada
@@ -8,6 +16,7 @@ header('Content-Type: application/json; charset=UTF-8');
 */
 $nombre = trim($_POST['nombre'] ?? '');
 $email = trim($_POST['email'] ?? '');
+$ciudad = trim($_POST['ciudad'] ?? '');
 
 $errores = [];
 $datosLimpios = [];
@@ -22,9 +31,9 @@ $datosLimpios = [];
 */
 if ($nombre === '') {
     $errores['nombre'] = 'El nombre es obligatorio.';
-} elseif (strlen($nombre) < 2) {
+} elseif (mb_strlen($nombre) < 2) {
     $errores['nombre'] = 'El nombre debe tener al menos 2 caracteres.';
-} elseif (strlen($nombre) > 50) {
+} elseif (mb_strlen($nombre) > 50) {
     $errores['nombre'] = 'El nombre no puede superar 50 caracteres.';
 } elseif (!preg_match('/^[\p{L}\s\'-]+$/u', $nombre)) {
     $errores['nombre'] = 'El nombre solo puede contener letras, espacios, apóstrofes y guiones.';
@@ -42,14 +51,29 @@ if ($nombre === '') {
 */
 if ($email === '') {
     $errores['email'] = 'El email es obligatorio.';
-} elseif (strlen($email) < 5) {
+} elseif (mb_strlen($email) < 5) {
     $errores['email'] = 'El email debe tener al menos 5 caracteres.';
-} elseif (strlen($email) > 100) {
+} elseif (mb_strlen($email) > 100) {
     $errores['email'] = 'El email no puede superar 100 caracteres.';
 } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
     $errores['email'] = 'El email no tiene un formato válido.';
 } else {
     $datosLimpios['email'] = $email;
+}
+
+/*
+|--------------------------------------------------------------------------
+| 3. Validación de ciudad
+|--------------------------------------------------------------------------
+| - longitud mínima y máxima
+| - formato válido
+*/
+if (mb_strlen($ciudad) < 5) {
+    $errores['ciudad'] = 'La ciudad debe tener al menos 5 caracteres.';
+} elseif (mb_strlen($ciudad) > 100) {
+    $errores['ciudad'] = 'La ciudad no puede superar 100 caracteres.';
+} else {
+    $datosLimpios['ciudad'] = $ciudad;
 }
 
 /*
@@ -65,12 +89,47 @@ if (!empty($errores)) {
         'errores' => $errores
     ]);
     exit;
-<<<<<<< HEAD
-}
-=======
 } else {
->>>>>>> origin/delia
+    require 'conexion.php';
 
+    // Insertar datos con sentencia preparada
+try {
+    $sql = "INSERT INTO contactos (nombre, email, ciudad)
+            VALUES (:nombre, :email, :ciudad)";
+
+    $stmt = $pdo->prepare($sql);
+
+    $stmt->execute([
+        ':nombre' => $nombre,
+        ':email'  => $email,
+        ':ciudad' => $ciudad
+    ]);
+    
+    echo json_encode([
+    'ok' => true,
+    'redirectTo' => 'listado.php'
+    ]);
+exit;
+} catch (PDOException $e) {
+    if ($e->errorInfo[1] === 1062) {
+        $errores['email'] = 'Ya existe un contacto con ese email.';
+        http_response_code(422);
+
+        echo json_encode([
+            'ok' => false,
+            'errores' => $errores
+        ]);
+        exit;
+    } 
+    http_response_code(500);
+        echo json_encode([
+            'ok' => false,
+            'errores' => [
+                'general' => 'Error interno al guardar el contacto.'
+            ]
+        ]);
+        exit;
+}
 /*
 |--------------------------------------------------------------------------
 | 5. Si todo está bien, devolver respuesta de éxito
@@ -99,12 +158,8 @@ if (!empty($errores)) {
 |    y devolver un JSON controlado, sin enseñar detalles técnicos
 |    sensibles al usuario final.
 */
-echo json_encode([
-    'ok' => true,
-    'mensaje' => 'Formulario validado correctamente. Listo para guardar en base de datos.'
-<<<<<<< HEAD
-]);
-=======
-]);
+// echo json_encode([
+//     'ok' => true,
+//     'mensaje' => 'Formulario validado correctamente. Listo para guardar en base de datos.'
+// ]);
 }
->>>>>>> origin/delia

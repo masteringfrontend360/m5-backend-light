@@ -19,9 +19,28 @@ echo "Comparación con ==: " . ($valor1 == $valor2 ? "Iguales" : "Diferentes") .
 echo "Comparación con ===: " . ($valor1 === $valor2 ? "Iguales" : "Diferentes") . "<br>";
 //prueba de commit
 // 5. Usa var_dump() para ver el tipo de cada variable
+<<<<<<< HEAD
 var_dump($numero);
 var_dump($decimal);
 var_dump($cadena);
 var_dump(NOMBRE);
 
 ?>
+=======
+
+$nombre = 'Delia';
+$edad = 51;
+$profe = true;
+
+define ('NOMBRE', 'Ana Delia Campo');
+
+$n1 = 1;
+$n2 = 3;
+$suma = $n1 + $n2;
+
+echo "La suma de $n1 + $n2 = $suma";
+
+var_dump(5=='5'); // true
+var_dump(5==='5'); // false
+var_dump($nombre, $edad, $profe);
+>>>>>>> origin/delia

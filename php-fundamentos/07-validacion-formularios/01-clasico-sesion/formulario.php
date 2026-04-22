@@ -1,5 +1,9 @@
 <?php
+<<<<<<< HEAD
 session_start();
+=======
+//session_start();
+>>>>>>> origin/delia
 
 $errores = $_SESSION['errores'] ?? [];
 $old = $_SESSION['old'] ?? [];

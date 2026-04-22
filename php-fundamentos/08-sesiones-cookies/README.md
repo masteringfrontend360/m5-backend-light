@@ -1,5 +1,9 @@
+<<<<<<< HEAD
 <!-- NUNCA DEBERIA EXISTIR EL FICHERO PHPINFO.PHP EN LA ESTRUCTURA
 DE UN PROYECTO -->
+=======
+
+>>>>>>> origin/delia
 # **Práctica Sesiones y Cookies PHP**
 
 **Objetivo**: Implementar login con sesión, carrito temporal y preferencias con cookies. Usar `output_buffering` para evitar errores de cabeceras.
