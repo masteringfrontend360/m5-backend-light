@@ -1,6 +1,6 @@
-Parte de este código inicial, que funciona pero está mal planteado:
+<!-- Parte de este código inicial, que funciona pero está mal planteado:
 
-```php
+```php -->
 <?php
 
 $productos = [
@@ -9,60 +9,101 @@ $productos = [
     ['nombre' => 'Pegatina', 'precio' => 2.25, 'stock' => 0],
 ];
 
-foreach ($productos as $producto) {
-    echo "<div>";
-    echo "<h2>" . $producto['nombre'] . "</h2>";
-    echo "<p>Precio: " . number_format($producto['precio'], 2) . "€</p>";
+// foreach ($productos as $producto) {
+//     echo "<div>";
+//     echo "<h2>" . $producto['nombre'] . "</h2>";
+//     echo "<p>Precio: " . number_format($producto['precio'], 2) . "€</p>";
 
-    if ($producto['stock'] > 10) {
-        echo "<p>Disponible</p>";
-    } elseif ($producto['stock'] > 0) {
-        echo "<p>Quedan pocas unidades</p>";
-    } else {
-        echo "<p>Agotado</p>";
+//     if ($producto['stock'] > 10) {
+//         echo "<p>Disponible</p>";
+//     } elseif ($producto['stock'] > 0) {
+//         echo "<p>Quedan pocas unidades</p>";
+//     } else {
+//         echo "<p>Agotado</p>";
+//     }
+
+//     if ($producto['precio'] > 10) {
+//         echo "<p>Producto principal</p>";
+//     } else {
+//         echo "<p>Producto complemento</p>";
+//     }
+
+//     echo "</div>";
+// }
+
+// ```
+
+// Refactoriza el código creando al menos estas funciones:
+
+// - `formatear_precio(float $precio): string`
+    function formatear_precio(float $precio): string {
+       return number_format($precio, 2) . "€";
     }
 
-    if ($producto['precio'] > 10) {
-        echo "<p>Producto principal</p>";
-    } else {
-        echo "<p>Producto complemento</p>";
+// - `obtener_mensaje_stock(int $stock): string`
+    function obtener_mensaje_stock(int $stock): string {
+       if ($stock > 10) {
+         return "Disponible";
+     } elseif ($stock > 0) {
+         return "Quedan pocas unidades";
+     } else {
+         return "Agotado";
+     }
     }
 
-    echo "</div>";
-}
-```
+// - `obtener_tipo_producto(float $precio): string`
+    function obtener_tipo_producto(float $precio): string {
+       if ($precio > 10) {
+         return "Producto principal";
+     } else {
+         return "Producto complemento";
+     } 
+    }
 
-Refactoriza el código creando al menos estas funciones:
+// - `renderizar_producto(array $producto): string`
+    function renderizar_producto(array $producto): string {
+        $nombre = $producto['nombre'];
+        $precio = $producto['precio'];
+        $stock = $producto['stock'];
+        $tipo = obtener_tipo_producto($precio);
+        return '
+        <div>
+    <h2>' . $nombre . '</h2>
+    <p>' . formatear_precio($precio) . '</p>
+    <p>' . obtener_mensaje_stock($stock) . '</p>
+    <p>' . $tipo . '</p>
+    </div>
+        ';
+    }
 
-- `formatear_precio(float $precio): string`
-- `obtener_mensaje_stock(int $stock): string`
-- `obtener_tipo_producto(float $precio): string`
-- `renderizar_producto(array $producto): string`
+    foreach ($productos as $producto) {
+        echo renderizar_producto($producto);
+    }
 
-Condiciones:
+// Condiciones:
 
-- El `foreach` principal debe quedar lo más limpio posible.
-- Intenta que dentro del bucle solo haya una llamada a `renderizar_producto()`.
-- Evita mezclar toda la lógica directamente con `echo`.
-- Prioriza `return` en las funciones.
-- El HTML final debe ser equivalente, pero el código debe ser más legible.
+// - El `foreach` principal debe quedar lo más limpio posible.
+// - Intenta que dentro del bucle solo haya una llamada a `renderizar_producto()`.
+// - Evita mezclar toda la lógica directamente con `echo`.
+// - Prioriza `return` en las funciones.
+// - El HTML final debe ser equivalente, pero el código debe ser más legible.
 
-Objetivo:
+// Objetivo:
 
-- Detectar código repetido o demasiado mezclado.
-- Aprender a refactorizar sin cambiar el resultado final.
-- Entender por qué las funciones ayudan tanto en themes, templates y plugins.
+// - Detectar código repetido o demasiado mezclado.
+// - Aprender a refactorizar sin cambiar el resultado final.
+// - Entender por qué las funciones ayudan tanto en themes, templates y plugins.
 
----
+// ---
 
-## Extra opcional
+// ## Extra opcional
 
-A partir de cualquiera de los ejercicios anteriores, crea un archivo `05-funciones-helpers.php` y mueve allí las funciones reutilizables.
+// A partir de cualquiera de los ejercicios anteriores, crea un archivo `05-funciones-helpers.php` y mueve allí las funciones reutilizables.
 
-Después:
+// Después:
 
-- Incluye el archivo con `require_once`.
-- Reutiliza las funciones en dos ejercicios distintos.
-- Comprueba que no duplicas código.
+// - Incluye el archivo con `require_once`.
+// - Reutiliza las funciones en dos ejercicios distintos.
+// - Comprueba que no duplicas código.
 
----
+// ---
