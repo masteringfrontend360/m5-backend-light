@@ -9,6 +9,7 @@
 cache/
 vendor/
 .env
+composer-setup.php
 
 # WSL/Debian
 soluciones/
