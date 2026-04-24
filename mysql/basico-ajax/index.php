@@ -79,7 +79,7 @@ button:hover {
 <body>
     <h1>📧 Añadir contacto</h1>
     
-    <form action="guardar-ajax.php" method="POST" novalidate id="formularioAjax">
+    <form action="guardar-ajax.php" method="POST" id="formularioAjax">
          <div>
             <label for="nombre">Nombre:</label><br>
             <input type="text" id="nombre" name="nombre" required maxlength="100">
@@ -118,8 +118,12 @@ button:hover {
         inputEmail.setAttribute('aria-invalid', 'false');
         inputCiudad.setAttribute('aria-invalid', 'false');
 
+
+        formulario.noValidate = true;
+
         formulario.addEventListener('submit', async function (e) {
             e.preventDefault();
+            
 
             errorNombre.textContent = '';
             errorEmail.textContent = '';
@@ -133,7 +137,7 @@ button:hover {
             const datos = new FormData(formulario);
 
             try {
-                const respuesta = await fetch('guardar-ajax.php', {
+                const respuesta = await fetch(formulario.action, {
                     method: 'POST',
                     body: datos
                 });

@@ -45,6 +45,8 @@ try {
     $sql = "INSERT INTO contactos (nombre, email, ciudad)
             VALUES (:nombre, :email, :ciudad)";
 
+
+
     $stmt = $pdo->prepare($sql);
 
     $stmt->execute([

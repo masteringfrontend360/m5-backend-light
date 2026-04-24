@@ -104,11 +104,12 @@ try {
         ':email'  => $email,
         ':ciudad' => $ciudad
     ]);
-
+    
     echo json_encode([
     'ok' => true,
     'redirectTo' => 'listado.php'
-]);
+    ]);
+exit;
 } catch (PDOException $e) {
     if ($e->errorInfo[1] === 1062) {
         $errores['email'] = 'Ya existe un contacto con ese email.';
