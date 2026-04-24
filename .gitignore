@@ -9,6 +9,8 @@
 cache/
 vendor/
 .env
+composer-setup.php
+laravel
 
 # WSL/Debian
 soluciones/
