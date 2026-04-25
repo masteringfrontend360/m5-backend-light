@@ -1,4 +1,4 @@
-## Ejercicio 1: Procesador de comentarios WordPress
+ <!-- ## Ejercicio 1: Procesador de comentarios WordPress
 
 ### Nivel
 Básico - Refuerza `trim()`, `htmlspecialchars()`, `strlen()` y `empty()`.
@@ -11,6 +11,7 @@ Crea un fichero `procesar-comentario.php` en `php-fundamentos/funciones-predefin
 _ `$_POST['nombre']`  
 _ `$_POST['email']`  
 _ `$_POST['comentario']`
+
 
 #### 2. Aplique limpieza básica
 
@@ -33,15 +34,15 @@ Si todas las validaciones pasan, muestra:
 
 ```php
 <div class="comentario-wp">
-    <strong><?php echo ucfirst($nombreLimpio); ?></strong>
-    <em><?php echo $emailLimpio; ?></em>
-    <p><?php echo $comentarioLimpio; ?></p>
+    <strong> echo ucfirst($nombreLimpio); ?></strong>
+    <em> echo $emailLimpio; ?></em>
+    <p> echo $comentarioLimpio; ?></p>
 </div>
 ```
 
-### form-comentario.html
+### form-comentario.html -->
 
-```html
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -73,9 +74,9 @@ Si todas las validaciones pasan, muestra:
     </form>
 </body>
 </html>
-```
 
-### Pruebas recomendadas
+
+<!-- ### Pruebas recomendadas
 
 _ **Datos válidos:** `Ana García`, `ana@ejemplo.com`, comentario de 20 caracteres.  
 _ **Nombre corto:** `A` (debe fallar).  
@@ -92,4 +93,4 @@ _ `empty()` - Comprobar campos vacíos
 _ `ucfirst()` - Formatear nombre  
 _ `strtolower()` - Normalizar email  
 
----
+--- -->
