@@ -1,19 +1,25 @@
 <?php
 
-// Ejercicio 5
+
 // 1. Declara dos números
-$num1 = 10;
-$num2 = 5;
+$manzanas = 7;
+$peras = 4;
+
 // 2. Realiza suma
-$suma = $num1 + $num2;
+define ("SUMA", $manzanas + $peras);
+
 // 3. Realiza resta
-$resta = $num1 - $num2;
+define ("RESTA", $manzanas - $peras);
+
 // 4. Realiza multiplicación
-$multiplicacion = $num1 * $num2;
+define ("MULTIPLICACION", $manzanas * $peras);
+
 // 5. Realiza división
-$division = $num1 / $num2;
+define ("DIVISION", $manzanas / $peras);
+
 // 6. Muestra todos los resultados
-echo "Suma: " . $suma . "<br>";
-echo "Resta: " . $resta . "<br>";
-echo "Multiplicación: " . $multiplicacion . "<br>";
-echo "División: " . $division . "<br>";
+echo "Manzanas: " . $manzanas . "<br>Peras: " . $peras;
+echo "<br><br>Suma: " . SUMA;
+echo "<br>Resta: " . RESTA;
+echo "<br>Multiplicacion: " . MULTIPLICACION;
+echo "<br>Division: " . DIVISION;

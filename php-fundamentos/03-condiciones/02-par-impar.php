@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <title>Par o impar</title>
 </head>
+
 <body>
     <h1>Número par o impar</h1>
 
@@ -17,9 +19,20 @@
 
     <?php
     // 1. Comprobar que se ha enviado el formulario
+    if ($_SERVER["REQUEST_METHOD"] === "POST") {
     // 2. Recuperar el número entero
+        $numero = $_POST["numero"];
     // 3. Usar el operador % (módulo) para decidir si es par o impar. Recuerda que un número es par si el resto de dividirlo entre 2 es 0.
+        if ($numero % 2 === 0) {
     // 4. Mostrar un mensaje con el resultado. Controla que el mensaje solo se vea después de enviar el formulario.
+            echo "El numero es par";
+        } else {
+            echo "El numero es impar";
+        }
+    } 
+
+    
     ?>
 </body>
+
 </html>

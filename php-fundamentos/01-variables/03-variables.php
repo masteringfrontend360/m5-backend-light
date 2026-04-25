@@ -1,16 +1,20 @@
 <?php
 
-// Ejercicio 3
+
 // 1. Declara una variable entera y una cadena de texto
-$valor = 10;
-$texto = "Este es un string";
+$edad = 32;
+$nombre = "Sergio";
 
 // 2. Muestra sus valores iniciales
-echo "Valor de la variable entera: " . $valor . "<br>";
+echo $edad;
+echo $nombre;
+
 // 3. Cambia el valor de la variable entera
-$valor = 2;
+$edad = 31;
+
 // 4. Concatena texto a la cadena
-$texto .= "concatenado al string original";
+$edad .= $nombre;
+echo $edad;
+
 // 5. Muestra los valores finales
-echo "Nuevo valor de variable entera : " . $valor . "<br>";
-echo "Nuevo valor de variable cadena : " . $texto . "<br>";
+echo $edad;
