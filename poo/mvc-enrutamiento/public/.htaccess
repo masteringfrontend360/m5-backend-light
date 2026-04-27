@@ -1,5 +1,5 @@
 RewriteEngine On
-RewriteBase /m5-backend-light/poo/mvc/public/
+RewriteBase /m5-backend-light/poo/mvc-enrutamiento/public/
 
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
