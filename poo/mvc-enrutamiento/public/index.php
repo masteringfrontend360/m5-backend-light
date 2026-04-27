@@ -1,6 +1,6 @@
 <?php
 
-define('BASE_URL', '/m5-backend-light/poo/mvc/public/');
+define('BASE_URL', '/m5-backend-light/poo/mvc-enrutamiento/public/');
 
 $path = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 $url = str_replace(BASE_URL, '', $path);
