@@ -1,6 +1,6 @@
 <?php
 
-define('BASE_URL', '/m5-backend-light/poo/mvc/public/');
+define('BASE_URL', '/curso/m5-backend-light/poo/mcv-prueba/public/index.php');
 
 $path = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 $url = str_replace(BASE_URL, '', $path);
