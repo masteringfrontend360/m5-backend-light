@@ -1,0 +1,130 @@
+/* =========================
+   BASE
+========================= */
+body {
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f4f6f9;
+    color: #333;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* =========================
+   HEADER / NAV
+========================= */
+nav {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    padding: 15px 25px;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav a {
+    color: white;
+    margin-left: 15px;
+    font-weight: 500;
+}
+
+/* =========================
+   CONTENEDOR
+========================= */
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: 30px auto;
+}
+
+/* =========================
+   PRODUCTOS
+========================= */
+.producto {
+    background: white;
+    padding: 20px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.producto h3 {
+    margin: 0;
+}
+
+.producto p {
+    margin: 5px 0;
+    color: #666;
+}
+
+/* =========================
+   BOTONES
+========================= */
+button {
+    background: #667eea;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+button:hover {
+    background: #5a67d8;
+}
+
+.btn-danger {
+    background: #e53e3e;
+}
+
+.btn-danger:hover {
+    background: #c53030;
+}
+
+/* =========================
+   CARRITO
+========================= */
+.cart-item {
+    background: white;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* =========================
+   ALERTAS
+========================= */
+.alert {
+    padding: 12px;
+    border-radius: 6px;
+    margin-bottom: 15px;
+}
+
+.alert-success {
+    background: #c6f6d5;
+    color: #22543d;
+}
+
+.alert-error {
+    background: #fed7d7;
+    color: #742a2a;
+}
+
+/* =========================
+   TOTAL
+========================= */
+.total {
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 15px;
+}

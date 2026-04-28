@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Añadir contacto</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            max-width: 600px;
+            margin: 2rem auto;
+            padding: 1rem;
+        }
+
+        input, button {
+            font: inherit;
+            padding: 0.5rem;
+        }
+
+        input {
+            width: 100%;
+            max-width: 100%;
+            box-sizing: border-box;
+        }
+
+        p {
+            margin-bottom: 1rem;
+        }
+
+        a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .alerta {
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border-radius: 4px;
+        }
+
+        .alerta-success {
+            background: #e0ffe0;
+            color: #00cc00;
+            border: 1px solid #00aa00;
+        }
+
+        .alerta-error {
+            background: #ffe0e0;
+            color: #cc0000;
+            border: 1px solid #aa0000;
+        }
+    </style>
+</head>
+<body>
+    <h1>📧 Añadir contacto</h1>
+    
+    <div id="mensajes"></div>
+    
+    <form id="formulario" novalidate>
+        <p>
+            <label for="nombre">Nombre:</label><br>
+            <input type="text" id="nombre" name="nombre" required maxlength="100">
+        </p>
+
+        <p>
+            <label for="email">Email:</label><br>
+            <input type="email" id="email" name="email" required maxlength="100">
+        </p>
+
+        <p>
+            <label for="ciudad">Ciudad:</label><br>
+            <input type="text" id="ciudad" name="ciudad" maxlength="50">
+        </p>
+
+        <button type="submit">💾 Guardar contacto</button>
+    </form>
+
+    <p><a href="/listado">📋 Ver todos los contactos</a></p>
+
+    <script src="/js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+# Sistema operativo
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# IDE
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+*.phpstorm.meta.php
+
+# PHP
+.env
+.env.local
+vendor/
+composer.lock
+
+# Sesiones
+sessions/
+*.session
+
+# Logs
+logs/
+*.log
+
+# Caché
+__pycache__/
+.cache/
+*.pyc
+
+# Archivos temporales
+tmp/
+temp/
+*.tmp
+
+# Datos sensibles
+config/database.php
+config/secrets.php
+
+# Dependencias de Node (si añades frontend moderno)
+node_modules/
+package-lock.json
+pnpm-lock.yaml
