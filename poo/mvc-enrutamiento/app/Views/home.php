@@ -2,6 +2,7 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="<?= BASE_URL ?>css/style.css">
     <title><?= $titulo ?></title>
 </head>
 <body>

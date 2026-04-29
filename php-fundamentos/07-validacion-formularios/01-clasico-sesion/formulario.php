@@ -1,5 +1,9 @@
 <?php
+<<<<<<< HEAD
 //session_start();
+=======
+session_start();
+>>>>>>> 0ba29caaaca563cde556c5ec97b043b4d1063d2e
 
 $errores = $_SESSION['errores'] ?? [];
 $old = $_SESSION['old'] ?? [];

@@ -65,7 +65,11 @@ if (!empty($errores)) {
         'errores' => $errores
     ]);
     exit;
+<<<<<<< HEAD
 } else {
+=======
+}
+>>>>>>> 0ba29caaaca563cde556c5ec97b043b4d1063d2e
 
 /*
 |--------------------------------------------------------------------------
@@ -98,5 +102,9 @@ if (!empty($errores)) {
 echo json_encode([
     'ok' => true,
     'mensaje' => 'Formulario validado correctamente. Listo para guardar en base de datos.'
+<<<<<<< HEAD
 ]);
 }
+=======
+]);
+>>>>>>> 0ba29caaaca563cde556c5ec97b043b4d1063d2e

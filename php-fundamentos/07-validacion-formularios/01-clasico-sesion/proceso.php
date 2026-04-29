@@ -20,7 +20,11 @@ $datosLimpios = [];
 | - longitud mínima y máxima
 | - solo letras, espacios, apóstrofes y guiones
 */
+<<<<<<< HEAD
 if ($nombre === '') { // También se puede comprobar con empty($nombre)
+=======
+if ($nombre === '') {
+>>>>>>> 0ba29caaaca563cde556c5ec97b043b4d1063d2e
     $errores['nombre'] = 'El nombre es obligatorio.';
 } elseif (strlen($nombre) < 2) {
     $errores['nombre'] = 'El nombre debe tener al menos 2 caracteres.';
@@ -62,12 +66,19 @@ if (!empty($errores)) {
     $_SESSION['errores'] = $errores;
     $_SESSION['old'] = $_POST;
 
+<<<<<<< HEAD
     // header('Location: formulario.php');
     http_response_code(422); // Que se utiliza habitualmente para decir que los datos del formulario no han pasado la validación
     include 'formulario.php';
     exit;
 }
 echo 'Has completado el registro';
+=======
+    header('Location: formulario.php');
+    exit;
+}
+
+>>>>>>> 0ba29caaaca563cde556c5ec97b043b4d1063d2e
 /*
 |--------------------------------------------------------------------------
 | 5. Si todo está bien, guardar en BD

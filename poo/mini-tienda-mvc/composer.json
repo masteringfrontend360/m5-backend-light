@@ -1,0 +1,17 @@
+{
+  "name": "adc/mini-tienda-mvc",
+  "type": "project",
+  "autoload": {
+    "psr-4": {
+      "App\\": "app/"
+    }
+  },
+  "require-dev": {
+    "phpdocumentor/shim": "^3"
+  },
+  "config": {
+    "allow-plugins": {
+      "phpdocumentor/shim": true
+    }
+  }
+}
