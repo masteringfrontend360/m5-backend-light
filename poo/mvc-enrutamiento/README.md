@@ -2,6 +2,13 @@
 
 Para que funcione la prueba
 
+Habilitar mod_rewrite de Apache
+
+```
+sudo a2enmod rewrite
+sudo systemctl restart apache2
+```
+
 Editar
 ```
 sudo nano /etc/apache2/sites-available/000-default.conf
