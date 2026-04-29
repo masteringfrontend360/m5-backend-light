@@ -1,19 +1,10 @@
 <?php
 declare(strict_types=1);
 
-namespace App;
+namespace App\Models;
 
-// Definimos una interfaz para que el Carrito no dependa de $_SESSION
-interface CartStorageInterface {
-    public function load(): array;
-    public function save(array $items): void;
-}
-
-class SessionStorage implements CartStorageInterface {
-    public function load(): array { return $_SESSION['carrito'] ?? []; }
-    public function save(array $items): void { $_SESSION['carrito'] = $items; }
-}
-
+use App\Models\Interfaces\CartStorageInterface;
+use App\Models\Producto;
 class Carrito
 {
     private array $items = [];
