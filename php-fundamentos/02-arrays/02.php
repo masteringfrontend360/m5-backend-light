@@ -3,16 +3,19 @@
 <head><title>Ej2 Arrays</title></head>
 <body>
 <?php
-// TODO: Crea array asociativo $producto con claves 'nombre', 'precio' y 'stock'
-/*
+// Crea array asociativo $producto con claves 'nombre', 'precio' y 'stock'
 $producto = [
- 'nombre' => '...',
- 'precio' => ...,
- 'stock' => ...
+ 'nombre' => 'Air Jordan 1 Mid',
+ 'precio' => 97.99,
+ 'stock' => true
  ];
- */
-// TODO: Muestra el nombre
-// TODO: Muestra el precio
+ 
+// Muestra el nombre
+echo $producto ["nombre"];
+
+// Muestra el precio
+echo $producto ["precio"];
+
 ?>
 </body>
 </html>

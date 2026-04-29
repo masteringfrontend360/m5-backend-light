@@ -3,12 +3,15 @@
 <head><title>Ej1 Arrays</title></head>
 <body>
 <?php
-// TODO: Crea un array indexado con 4 tecnologías que conoces
-//$tecnologias = ['ejemplo1', 'ejemplo2', 'ejemplo3', 'ejemplo4'];
+// Crea un array indexado con 4 tecnologías que conoces
+$tecnologias = ['html', 'css', 'javascript', 'php'];
 
-// TODO: Muestra el primer elemento (índice 0)
+// Muestra el primer elemento (índice 0)
+echo $tecnologias[0];
+
+// Muestra el último elemento (índice 3 o count()-1) -->
+echo $tecnologias[3];
+
 ?>
-
-<!-- TODO: Muestra el último elemento (índice 3 o count()-1) -->
 </body>
 </html>

@@ -17,9 +17,22 @@
 
     <?php
     // 1. Comprobar que se ha enviado el formulario
+    if ($_SERVER["REQUEST_METHOD"] === "POST" ) {
     // 2. Recuperar la nota
+        $nota = $_POST["nota"];
     // 3. Comprobar que está entre 0 y 10 (validación básica). Añade una comprobación por si el usuario introduce una nota fuera de rango.
+        if ($nota >= 0 && $nota <= 10) {
     // 4. Usar if / else para mostrar "Aprobado" o "Suspendido"
+                $mensaje = $nota >= 5 ? "aprobado" : "suspendido";
+    echo $mensaje;
+           
+    } else {
+        echo "No valida";
+    }
+    }
+    
+    
+    
 
     // OPCIONAL:
     // - Repite la lógica usando el operador ternario en una variable,

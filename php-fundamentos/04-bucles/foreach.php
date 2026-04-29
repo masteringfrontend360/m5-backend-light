@@ -14,7 +14,7 @@ Guía:
 - Comprueba si el formulario se ha enviado.
 - Recorre $_POST con foreach.
 - Muestra cada campo y su valor en una lista.
-- Como mejora opcional, puedes ignorar campos vacíos.
+
 */
 ?>
 <!DOCTYPE html>
@@ -105,12 +105,23 @@ Guía:
     </form>
 
     <hr>
-
+<ul>
     <?php
     // TODO:
     // 1. Comprobar si el formulario se ha enviado.
-    // 2. Recorrer el array $_POST con foreach.
+    if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    // 2. Recorrer el array $_POST con foreach.    
+    foreach ($_POST as $clave => $valor) {
+    // Como mejora opcional, puedes ignorar campos vacíos.
+        if ($valor !== "") {
     // 3. Mostrar una lista HTML con el nombre de cada campo y su valor.
+    echo "<li>" . $clave . ": " . $valor . "</li>";
+    }
+    }
+    }
+
+    
+    
 
     /*
     Pistas:
@@ -119,6 +130,6 @@ Guía:
     - Puedes usar <ul> y <li> para mostrar los resultados.
     */
     ?>
-
+</ul>
 </body>
 </html>
