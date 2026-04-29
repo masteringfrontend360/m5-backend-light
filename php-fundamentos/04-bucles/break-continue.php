@@ -21,6 +21,13 @@ for ($i=1; $i <= 20; $i++) {
     echo 'los valores son ' . $i . '<br><br>';
 }
 
+for ($contador = 1; $contador <= 20; $contador++) {
+    if ($contador % 3 === 0) {
+        continue;
+    }
+    echo $contador;
+}
+
 /*
 Guía:
 - Recorre el rango con un for.

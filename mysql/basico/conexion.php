@@ -4,12 +4,20 @@ declare(strict_types=1);
 // Cargar variables de entorno
 $dotenv = parse_ini_file(__DIR__ . '/.env');
 
+<<<<<<< HEAD
 // // Comprueba si .env se ha leído correctamente antes de usarlo.
+=======
+// Comprueba si .env se ha leído correctamente antes de usarlo.
+>>>>>>> main
 if ($dotenv === false) {
     die('Error: no se pudo leer el archivo .env');
 }
 
+<<<<<<< HEAD
 // // Verifica que existan todas las claves necesarias
+=======
+// Verifica que existan todas las claves necesarias
+>>>>>>> main
 $requiredKeys = ['DB_HOST', 'DB_NAME', 'DB_USER', 'DB_PASS'];
 
 foreach ($requiredKeys as $key) {

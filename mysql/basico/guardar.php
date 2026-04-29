@@ -57,6 +57,7 @@ try {
 } catch (PDOException $e) {
     // http_response_code(500);
     // echo '❌ Error al guardar el contacto';
+<<<<<<< HEAD
 
     //  Código de error 1062 = entrada duplicada en MySQL
     if ($e->errorInfo[1] === 1062) {
@@ -64,5 +65,15 @@ try {
     } else {
         echo '❌ Error al guardar el contacto';
     }
+=======
+    //  echo $e -> getMessage();
+
+     // Código de error 1062 = entrada duplicada en MySQL
+    // if ($e->errorInfo[1] === 1062) {
+    //     echo '❌ Ya existe un contacto con ese email';
+    // } else {
+    //     echo '❌ Error al guardar el contacto';
+    // }
+>>>>>>> main
 }
 ?>

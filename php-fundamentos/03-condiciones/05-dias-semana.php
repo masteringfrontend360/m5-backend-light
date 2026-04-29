@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <title>Día de la semana</title>
 </head>
+
 <body>
     <h1>Día de la semana</h1>
 
@@ -65,4 +67,5 @@
     }
     ?>
 </body>
+
 </html>

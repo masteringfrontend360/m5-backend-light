@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <title>Signo de un número</title>
 </head>
+
 <body>
     <h1>Signo de un número</h1>
 
@@ -32,4 +34,5 @@
     }
     ?>
 </body>
+
 </html>

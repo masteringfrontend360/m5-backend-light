@@ -41,7 +41,6 @@
             <label for="email">Email:</label><br>
             <input type="email" id="email" name="email" required maxlength="100">
         </p>
-
         <p>
             <label for="ciudad">Ciudad:</label><br>
             <input type="text" id="ciudad" name="ciudad" maxlength="50">

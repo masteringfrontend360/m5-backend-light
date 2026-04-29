@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <title>Clasificación por edad</title>
 </head>
+
 <body>
     <h1>Clasificación por edad</h1>
 
@@ -41,4 +43,5 @@
     }
     ?>
 </body>
+
 </html>

@@ -1,6 +1,6 @@
 <h1>Ejercicio variables de tipos</h1>
 <?php
-// Ejercicio 1
+
 // 1. Declara 3 variables de distinto tipo
 
 $nombre = "mayckel";

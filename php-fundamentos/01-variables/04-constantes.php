@@ -1,6 +1,5 @@
 <?php
 
-// Ejercicio 4
 // 1. Define la constante IVA con valor 0.21
 const IVA = 0.21;
 

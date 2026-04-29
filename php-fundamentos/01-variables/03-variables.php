@@ -1,6 +1,6 @@
 <?php
 
-// Ejercicio 3
+
 // 1. Declara una variable entera y una cadena de texto
 $entero = 777;
 $cadena = "hola, me mude al file 03-variables.php";

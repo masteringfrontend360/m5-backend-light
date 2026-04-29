@@ -1,6 +1,6 @@
 <?php
 
-// Ejercicio 5
+
 // 1. Declara dos números
 const FLOTANTE = 7.77;
 const ENTERO = 777;

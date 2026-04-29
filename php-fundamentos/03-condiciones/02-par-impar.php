@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <title>Par o impar</title>
 </head>
+
 <body>
     <h1>Número par o impar</h1>
 
@@ -34,4 +36,5 @@
     }
     ?>
 </body>
+
 </html>

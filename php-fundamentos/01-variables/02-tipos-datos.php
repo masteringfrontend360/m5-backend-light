@@ -1,6 +1,6 @@
 <?php
 
-// Ejercicio 2
+
 // 1. Define una variable de tipo entero
 $entero = 777;
 
