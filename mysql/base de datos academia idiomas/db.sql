@@ -1,3 +1,5 @@
+-- DBdiagram --> https://dbdiagram.io/d/Escuela-de-idiomas-69f29678ddb9320fdc9456d3
+
 Table idiomas {
   id bigint [pk, increment]
   nombre varchar(100)
