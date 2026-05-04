@@ -1,0 +1,66 @@
+Table "grupos" {
+  "id" smallint(5) [pk, increment, not null]
+  "id_idioma" tinyint(3) [not null]
+  "id_nivel" tinyint(3) [not null]
+  "id_horario" tinyint(3) [not null]
+  "num_plazas" tinyint(3) [not null, default: 5]
+}
+
+Table "horarios" {
+  "id" tinyint(3) [pk, increment, not null]
+  "descripcion" varchar(200) [not null]
+}
+
+Table "idiomas" {
+  "id" tinyint(3) [pk, increment, not null]
+  "nombre" varchar(50) [not null]
+}
+
+Table "niveles" {
+  "id" tinyint(3) [pk, increment, not null]
+  "nombre" varchar(20) [not null]
+}
+
+Table "preinscripciones_cabecera" {
+  "id" int(10) [pk, increment, not null]
+  "id_preinscrito" int(10) [not null]
+  "fecha" datetime [not null]
+}
+
+Table "preinscripciones_grupos" {
+  "id" int(10) [pk, increment, not null]
+  "id_preinscripcion" int(10) [not null]
+  "id_grupo" smallint(5) [not null]
+  "prioridad" tinyint(3) [not null]
+  "admitido" tinyint(3) [not null, default: 0]
+  "num_reserva" int(11) [default: NULL]
+}
+
+Table "preinscritos" {
+  "id" int(10) [pk, increment, not null]
+  "nombre" varchar(100) [not null]
+  "apellido" varchar(100) [not null]
+}
+
+Table "preinscritos_private" {
+  "id" int(10) [pk, increment, not null]
+  "email" varchar(100) [not null]
+  "dni" varchar(15) [unique, not null]
+  "fecha_nacimiento" date [not null]
+  "password" varchar(255) [not null]
+}
+
+
+Ref: "idiomas"."id" < "grupos"."id_idioma"
+
+Ref: "niveles"."id" < "grupos"."id_nivel"
+
+Ref: "horarios"."id" < "grupos"."id_horario"
+
+Ref: "preinscritos"."id" - "preinscritos_private"."id"
+
+Ref: "preinscritos"."id" < "preinscripciones_cabecera"."id_preinscrito"
+
+Ref: "preinscripciones_cabecera"."id" < "preinscripciones_grupos"."id_preinscripcion"
+
+Ref: "grupos"."id" < "preinscripciones_grupos"."id_grupo"
